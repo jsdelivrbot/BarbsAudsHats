@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="dummy_input" type="text" class="ghost-input" placeholder="Dummy Input" required>
+          <input type="submit" class="ghost-button" value="Dummy Button">
+        </form>
+        <% if(dummy_variable !== null){ %>
+          <p><%= dummy_variable %></p>
+        <% } %>
+
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+        <% } %>
+      </fieldset>
+    </div>
+  </body>
+</html>
+
