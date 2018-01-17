@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+    <div class="jumbotron">
+	<!--<h1 class="title" id='title'><%= title %></h1>
+	<p><%= tagline %></p> -->
+    </div>
+    <div>
+      <fieldset>
+        <form action="/" method="post">
+          <input name="dummy_input" type="text" class="ghost-input" placeholder="Dummy Input" required>
+          <input type="submit" class="btn btn-primary" value="Dummy Button">
+        </form>
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+        <% } %>
+      </fieldset>
+    </div>
+<script src="/reload/reload.js"></script>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
