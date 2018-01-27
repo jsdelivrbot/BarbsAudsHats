@@ -11,21 +11,62 @@
 
 <main>
     <div class="jumbotron">
-	<!--<h1 class="title" id='title'><%= title %></h1>
-	<p><%= tagline %></p> -->
+        <div class="tagline-text-helper">
+                <p><%= tagline %></p>
+        </div>
+        <div class="images-holder">
+                <a class="home-image-link" href="/facinators">
+                        <div class="image-container">
+
+                                <img alt="View Facinators" class="display-image" src="/images/facinators/facinator_008.jpg"/>
+                                <div class="text-image-holder">
+                                        <span class="text-image-helper">Facinators</span>
+                                </div>
+                        </div>
+                </a>
+                <a class="home-image-link" href="/facinators">
+                        <div class="image-container">
+                                <img alt="View Showroom" class="display-image" src="/images/showroom/showroom_005.jpg"/>
+                                <div class="text-image-holder">
+                                        <span class="text-image-helper">Showroom</span>
+                                </div>
+                        </div>
+                </a>
+                <a class="home-image-link" href="/facinators">
+                        <div class="image-container">
+                                <img alt="View Hats" class="display-image" src="/images/hats/hat_013.jpg"/>
+                                <div class="text-image-holder">
+                                        <span class="text-image-helper">Hats</span>
+                                </div>
+                        </div>
+                </a>
+        </div>
+        <!--<h1 class="title" id='title'><%= title %></h1>
+	 -->
     </div>
-    <div>
-      <fieldset>
-        <form action="/" method="post">
-          <input name="dummy_input" type="text" class="ghost-input" placeholder="Dummy Input" required>
-          <input type="submit" class="btn btn-primary" value="Dummy Button">
-        </form>
-        <% if(error !== null){ %>
-          <p><%= error %></p>
-        <% } %>
-      </fieldset>
+    <% include ../partials/contact %>
+    <div class="jumbotron col-xs-12">
+            <h3>How to find us</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 53.644778, lng: -1.737702};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29gE73HoTMA_CPaydxzNLY_uJ7I1QoMU&callback=initMap">
+    </script>
+
+
     </div>
-<script src="/reload/reload.js"></script>
 </main>
 
 <footer>

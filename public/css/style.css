@@ -3,102 +3,222 @@
   https://codepen.io/official_naveen/pen/rgknI
 */
 
-body {
-  width: 800px;
-  margin: 0 auto;
-  font-family: 'Open Sans', sans-serif;
-}
-.container {
-  width: 600px;
-  margin: 0 auto;
-}
-fieldset {
-  display: block;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-before: 0em;
-  -webkit-padding-start: 0em;
-  -webkit-padding-end: 0em;
-  -webkit-padding-after: 0em;
-  border: 0px;
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
-  border-image-repeat: initial;
-  min-width: -webkit-min-content;
-  padding: 30px;
-}
-.ghost-input, p {
-  display: block;
-  font-weight:300;
-  width: 100%;
-  font-size: 25px;
-  border:0px;
-  outline: none;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: #4b545f;
-  background: #fff;
-  font-family: Open Sans,Verdana;
-  padding: 10px 15px;
-  margin: 30px 0px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-.ghost-input:focus {
-  border-bottom:1px solid #ddd;
-}
-.ghost-button {
-  background-color: transparent;
-  border:2px solid #ddd;
-  padding:10px 30px;
-  width: 100%;
-  min-width: 350px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-.ghost-button:hover {
-  border:2px solid #515151;
-}
-p {
-  color: #E64A19;
+/***************          Elements                     ***************/
+header {
+  margin-bottom: 1em;
 }
 
-#Index
-.page-title {
-   
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
 }
 
-/*Fonts*/
-@font-face {
-	font-family: 'Lobster13Regular';
-	src: url('Lobster_1.3-webfont.eot');
-	src: local('☺'), url('Lobster_1.3-webfont.woff') format('woff'), url('Lobster_1.3-webfont.ttf') format('truetype'), url('Lobster_1.3-webfont.svg#webfontcOtP3oQb') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} 
+/***************          Fonts                          ***************/
+
+
+/***************          Navigation                     ***************/
+.navbar-helper {
+  height: 1px;
+  display: contents;
+}
+.navbar-header-helper {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 0.5em;
+  padding: 20px 20px 0px 20px !important;
+}
+.navbar-brand-helper {
+  font: 400 75px/0.6 'Tangerine', cursive;
+  color: rgb(0, 0, 0);
+  text-shadow: 5px 2px 0px rgba(54, 46, 54, 0.17);
+}
+.navbar-brand-description{
+  margin-left: 1em;
+}
+.nav-brand-width-helper {
+  width: 66%;
+}
+.nav-links {
+  margin-top: 30px;
+  text-align: right;
+}
+.nav-links li {
+  font-size: calc(100% + 0.3em);
+  padding: 0px 0px 5px 10px;
+}
+.nav-link a{
+  color: rgb(0, 0, 0);
+}
  
-h1 {
-	font-size: 2.2em;
-	#line-height: 2.2em;
-	font-family: 'Lobster13Regular', Helvetica, sans-serif;
-	font-weight: bold;
-	text-align: left;
-	text-shadow: rgba(0, 0, 0, .2) 3px 3px 3px;
-	
-	/*text stroke*/
-	-webkit-text-stroke: 4px rgba(0, 0, 0, .6);
+/***************          Layout                       ***************/
+
+/***************          Content                       ***************/
+.tagline-text-helper {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#map {
+  height: 400px;
+  width: 100%;
+ }
+div.jumbotron {
+  padding: 20px 20px 20px 20px !important;
+  background-color: rgba(156, 4, 136, 0.05) !important;
+  border-top: 5px rgba(156, 4, 136, 0.05) solid; 
+  border-radius:1px; 
+}
+.container-fluid {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  border-radius:10px;
+  border-top: 5px;
+ background-color: rgba(156, 4, 136, 0.05) !important;
+  border-top: 5px rgba(156, 4, 136, 0.05) solid; 
+}
+.container .jumbotron {
+  border-radius: 0px !important;
+}
+.contact-info-left {
+  text-align: left;
+  line-height: 0.9em;
+}
+.contact-info-right {
+  text-align: right;
+  line-height: 0.9em;
+}
+.contact-holder {
+  margin: 0em 5em 0em 5em;
+  display: flex;
+}
+.contact-width{
+  width: 45%;
+}
+/***************          Images                        ***************/
+.image-container {
+  width: 30%;
+  padding: 5px;
+  display: inline-flex;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease-out;
+}
+.image-container:hover img {
+  transform: scale(1.1, 1.1);
+  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in;
+}
+.images-holder {
+  display: inline-block;
+  text-align: center;
+}
+.text-image-holder {
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+}
+.display-image {
+  margin: auto;
+  display: inherit;
+  border-radius: 25px;
+  background: rgb(255, 255, 255, 0.4);
+  padding: 5px;
+  height: 85%; 
+}
+.text-image-helper {
+  font: 400 3em 'Oleo Script', Helvetica, sans-serif;
+  color: #ffffff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  line-height: 1.2;
+  align-content: center;
+}
+.about-image {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  display: inline-flex;
+  border-radius: 25px;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+ }
+img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+/***************          Media Query                   ***************/
+@media (max-width: 600px) {
+  img {
+    width: 100%;
+  }
+  .image-container {
+    width: 100%;
+  }
+  .contact-info {
+    font: 1em;
+    display: contents;
+  }
+  .navbar-brand-helper {
+    font: 1em;
+  }
+  .navbar-header-helper {
+    width: 100%;
+    display: block;
+  }
+  .navbar-brand-description{
+    margin-left: 0em;
+  }
+  .nav-brand-width-helper {
+    width: 100%;
+    text-align:center;
+  }
+  .image-container:hover img {
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s ease-out;
+    transition: all 0.3s ease-in;
+  }
+  .nav-links {
+    text-align: center;
+    margin-top: 5px;
+  }
+  .nav-links-width-helper {
+    width: 100%;
+  }
+  li {
+    padding: 0px 0px 5px 15px;
+    display: inline-block;
+  }
+  body {
+    font-size: 1.5em !important;
+  }
+  .contact-holder {
+    margin: 0px;
+    display: grid;
+  }
+  .contact-info-left {
+    display: block;
+    text-align: center;
+    line-height: 1em;
+  }
+  .contact-info-right {
+    display: block;
+    text-align: center;
+    line-height: 1em;
+  }
+  .contact-width{
+    width: 100%;
+  }
 }
 
-.brand-sub-header {
-	font-size: 2em;	
+@media (max-width: 400px) { 
+  .navbar-brand-helper {
+    font: 400 40px/0.6 'Tangerine', cursive;
+    color: rgb(0, 0, 0);
+    text-shadow: 5px 2px 0px rgba(54, 46, 54, 0.17);
+  }
 }
