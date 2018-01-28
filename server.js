@@ -32,7 +32,19 @@ app.get('/about', function(req, res) {
 	res.render('pages/about');
 });
 app.get('/facinators', function(req, res) {
-	res.render('pages/facinators');
+  var fascinators = [
+    {code: "F001", price: "£9.99", image: "facinator_010.jpg"},
+    {code: "F002", price: "£19.99", image: "facinator_003.jpg"},
+    {code: "F003", price: "£29.99", image: "facinator_005.jpg"},
+    {code: "F004", price: "£129.99", image: "facinator_006.jpg"},
+    {code: "F005", price: "£529.99", image: "facinator_007.jpg"},
+    {code: "F006", price: "£29.99", image: "facinator_008.jpg"},
+    {code: "F007", price: "£129.99", image: "facinator_016.jpg"},
+    {code: "F008", price: "£529.99", image: "facinator_011.jpg"},
+    ]
+	res.render('pages/facinators', {
+    fascinators: fascinators
+  });
 });
 app.post('/', function (req, res) {
   let dummy_input = req.body.dummy_input;

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<main>
+<div class="row">
+    <div class="col-sm-12">    
+        <div class="jumbotron">
+            <h1>Facinators</h1>
+            <p>Our facinators are designed to the highest quality, with you in mind. We aim to offer you our
+                years of expertise, talent and experience to create a unique and beautiful facinator to make you stand head and
+                sholders above the rest!
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-8">    
+            <div class="jumbotron hat-collection image-holder">
+                <ul>
+                    <%fascinators.forEach(function(fascinator){%>
+                    <div class="hat">
+                        <div class="hat-details">
+                            <li class="hat-info"><%=fascinator.code%> <br> <%=fascinator.price%></li>
+                            <img alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>" >
+                        </div>
+                    </div>
+                    <%})%>
+                </ul>
+            </div>
+        </div>
+    <div class="col-sm-4">        
+        <div class="well">
+            <div class="about-image">
+                <img alt="Barbs and Auds" src="/images/facinators/facinator_003.jpg" >
+            </div>  
+        </div>
+    </div>
+    <div class="col-sm-4">        
+            <div class="well">
+                <div class="contact-info">
+                    <h2>Contact Info</h2>
+                    <p>Enail: email@email.com</p>
+                    <p>Landline: 01484 888888</p>
+                    <p>Mobile: 07888 888888</p>
+                </div>  
+            </div>
+        </div>
+</div>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>

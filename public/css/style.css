@@ -62,9 +62,14 @@ li {
   margin-left: auto;
   margin-right: auto;
 }
+.map-header{
+ text-align: center;
+}
 #map {
   height: 400px;
-  width: 100%;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
  }
 div.jumbotron {
   padding: 20px 20px 20px 20px !important;
@@ -97,6 +102,43 @@ div.jumbotron {
 }
 .contact-width{
   width: 45%;
+}
+.hat-collection {
+  text-align: center;
+}
+.hat {
+  width: 12em;
+  display: inline-block;
+  align-content: center;
+  padding: 1em;
+  position:relative;
+  background:url() 50% 50% no-repeat;
+  background-size:cover;
+  background-clip:content-box;
+  border-radius: 10px;
+}
+
+.hat img {
+  border-radius: 1em;
+}
+.hat img:hover {
+  z-index: 5;
+  transform: scale(2, 2);
+  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in;
+}
+.hat-details{
+  font: 400 2em 'Oleo Script', Helvetica, sans-serif;
+  color: #ffffff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  line-height: 0.9em;
+  align-content: center;
+}
+.hat-info {
+  position: absolute;
+  top: 7em;
+  left: 1.5em;
 }
 /***************          Images                        ***************/
 .image-container {
