@@ -4,21 +4,31 @@
   "description": "Hats and Fascinators Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "supervisor --extensions node,js,css,ejs server.js"
   },
   "author": "Alex Brown",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.8",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
     "domino": "^2.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "flash": "^1.1.0",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.3",
+    "monk": "^6.0.5",
     "normalize.css": "^7.0.0",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "logger": "0.0.1",
     "morgan": "^1.9.0",
     "reload": "^2.2.2"
   }

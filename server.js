@@ -1,23 +1,55 @@
 'use strict'
 
 const express = require('express')
+const app = express()
+
+const MongoClient = require('mongodb').MongoClient;
+const monk = require('monk');
+const mongoose = require('mongoose');
+
+const morgan       = require('morgan');
 const bodyParser = require('body-parser');
 const request = require('request');
 
 const http = require('http')
 const path = require('path')
+const passport = require('passport');  
+const LocalStrategy = require('passport-local').Strategy; 
+const session = require('express-session');
+const flash    = require('connect-flash');
+
+var Fascinator       		= require('./models/fascinator');
+
 
 const reload = require('reload');
-const logger = require('morgan');
 
-const app = express()
+require('./config/passport')(passport);
+
+app.use(session({ cookie: { maxAge: 60000 }, 
+  secret: 'woot',
+  resave: false, 
+  saveUninitialized: false}));
+
+	// required for passport
+	app.use(passport.initialize());
+	app.use(flash()); // use connect-flash for flash messages stored in session
 
 
-const apiKey = 'pooch';
+  mongoose.connect('mongodb://localhost:27017/barbsaudshats'); // connect to our database
 
+// Get Mongoose to use the global promise library
+mongoose.Promise = global.Promise;
+//Get the default connection
+var db = mongoose.connection;
+
+app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
+
+const apiKey = 'pooch';
+
+
 
 app.get('/', function (req, res) {
 		var title = "Barbs & Auds Hats and Facinators"
@@ -31,19 +63,20 @@ app.get('/', function (req, res) {
 app.get('/about', function(req, res) {
 	res.render('pages/about');
 });
+
+app.get('/login', function(req, res) {
+	res.render('pages/login',{ message: req.flash('loginMessage') });
+});
+
 app.get('/facinators', function(req, res) {
-  var fascinators = [
-    {code: "F001", price: "£9.99", image: "facinator_010.jpg"},
-    {code: "F002", price: "£19.99", image: "facinator_003.jpg"},
-    {code: "F003", price: "£29.99", image: "facinator_005.jpg"},
-    {code: "F004", price: "£129.99", image: "facinator_006.jpg"},
-    {code: "F005", price: "£529.99", image: "facinator_007.jpg"},
-    {code: "F006", price: "£29.99", image: "facinator_008.jpg"},
-    {code: "F007", price: "£129.99", image: "facinator_016.jpg"},
-    {code: "F008", price: "£529.99", image: "facinator_011.jpg"},
-    ]
-	res.render('pages/facinators', {
-    fascinators: fascinators
+    Fascinator.find({}, function(err, fascinators) {
+    if (err) throw err;
+  
+    res.render('pages/facinators', {
+      "fascinators" : fascinators
+    });
+    // object of all the users
+    console.log(fascinators);
   });
 });
 app.post('/', function (req, res) {
@@ -63,6 +96,36 @@ request(url, function (err, response, body) {
     }
   });
 })
+
+app.post('/login', function(req, res){
+  const user = {
+     username : req.body.user,
+     password : req.body.password
+  }
+
+  if(user.username === '' && user.password === ""){
+    res.redirect('/')
+  } else {
+    res.redirect('login')
+  }
+
+});
+
+// app.post('/login', passport.authenticate('local-login', {
+//   successRedirect : '/', // redirect to the secure profile section
+//   failureRedirect : '/login', // redirect back to the signup page if there is an error
+//   failureFlash : true // allow flash messages
+// }));
+
+function isLoggedIn(req, res, next) {
+
+  // if user is authenticated in the session, carry on 
+  if (req.isAuthenticated())
+      return next();
+
+  // if they aren't redirect them to the home page
+  res.redirect('/');
+}
 
 const server = http.createServer(app)
 
