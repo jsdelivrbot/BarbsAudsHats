@@ -57,6 +57,16 @@ li {
   color: rgb(0, 0, 0);
 }
  
+.admin-container {
+  background-color: rgba(156, 4, 136, 0.05) !important;
+  height: 3em;
+}
+
+.navbar-admin-helper {
+
+}
+
+
 /***************          Layout                       ***************/
 
 /***************          Content                       ***************/
@@ -142,6 +152,38 @@ div.jumbotron {
   position: absolute;
   top: 7em;
   left: 1.5em;
+} 
+
+.contact-info{
+  float: left;
+  padding: 0px 0px 0px 25px;
+  width: 36.4%;
+}
+
+.hat-details-admin{
+  height: 2em;
+  font-size: 1em;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+.hat-details-admin:focus{
+  height: 2em;
+  border-style: dotted;
+  border-width: 1px;
+  border-color: rgb(245, 189, 237) ;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 1em;
+}
+.create-new{
+  text-align: center;
+}
+
+.col-xs-12 {
+  background-color: rgba(156, 4, 136, 0.05) !important;
+  border-radius: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em; 
 }
 /***************          Images                        ***************/
 .image-container {

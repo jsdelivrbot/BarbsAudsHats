@@ -21,4 +21,14 @@
             </div>
         </div>
     </div>
+    <%if (loggedIn === true) { %>
+        <div class="admin-container">
+            <div class="navbar-admin-helper">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">Stats</a></li>
+                    </ul>
+            </div>
+        </div>
+    <% } %>
 </nav>
