@@ -10,68 +10,94 @@
 </header>
 
 <main>
-<div class="row">
-    <div class="col-sm-12">    
+<div class="main-content">
+    <div class=<%= dynamic_content_width %>>    
         <div class="jumbotron">
-            <h1>Facinators</h1>
+            <h1>Fascinators</h1>
             <p>Our facinators are designed to the highest quality, with you in mind. We aim to offer you our
                 years of expertise, talent and experience to create a unique and beautiful facinator to make you stand head and
                 sholders above the rest!
             </p>
-        </div>
-    </div>
-</div>
-    <!-- <%if (loggedIn === true) { %> -->
-        <div class="col-sm-8 jumbotron">
+
+   <%if (loggedIn === true) { %>
+        <div class="">
             <div class="create-new" id="update">
-                <form action="/fascinators" method="post">
-                    <p>Create new</p>
-                    <input type="text" name="code" class="hat-details-admin" placeholder="Code"/>
-                    <input type="number" step="any" name="price" class="hat-details-admin" placeholder="Price"/>
-                    <input type="text" name="image" class="hat-details-admin" placeholder="Image"/>
+                <h3 class="pull-left">Create new</h3>
+                <form ref='uploadForm' 
+                      id='uploadForm'  
+                      action="/fascinators" 
+                      method="post"
+                      encType="multipart/form-data">
+                    <input type="text" 
+                           name="code" 
+                           class="hat-details-admin" 
+                           value=<%=lastCode%>
+                           required>
+                    <input type="number" 
+                           step="any" 
+                           name="price" 
+                           class="hat-details-admin" 
+                           placeholder="Price"
+                           required/>
+                    <input type="file" 
+                           name="upload" 
+                           class="hat-upload-admin" 
+                           placeholder="Image"
+                           required/>
                     <button type="submit" class="btn btn-warning btn-md ">Create</button>
                 </form>
             </div>
        
                 <br>
-    <!-- <% } %> -->
-
-            <div class="jumbotron hat-collection image-holder pull-left">
-                <ul>
-                    <%fascinators.forEach(function(fascinator){%>
-                    <div class="hat">
-                        <div class="hat-details">
-                            <li class="hat-info"><%=fascinator.code%> <br> £<%=fascinator.price%></li>
-                            <img alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>" >
-                        </div>
-                        <!-- <%if (loggedIn === true) { %> -->
-                                <form action="/fascinators_update" method="post">
-                                    <div id="update">
-                                        <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
-                                        <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
-                                        <input type="number" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
-                                        <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
-                                        <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
-                                        <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
-                                    </div>
-                                </form>
-                            <!-- <% } %> -->
-                        </div>
-                    <%})%>
-                 
-                </ul>
+     <% } %> 
+        <div class="content-holder">
+                <div class="hat-collection image-holder">
+                    <ul>
+                        <%fascinators.forEach(function(fascinator){%>
+                        <div class="hat">
+                            <div class="hat-details">
+                                <li class="hat-info"><%=fascinator.code%> <br> £<%=fascinator.price%></li>
+                                <img alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>" >
+                            </div>
+                             <%if (loggedIn === true) { %> 
+                                    <form action="/fascinators_update" 
+                                          method="post"
+                                          encType="multipart/form-data">
+                                        <div id="update">
+                                            <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
+                                            <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
+                                            <input type="number" step="any" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
+                                            <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
+                                            <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
+                                            <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
+                                        </div>
+                                    </form>
+                                <% } %> 
+                            </div>
+                        <%})%>
+                    
+                    </ul>
+                </div>
+        <%if (loggedIn === true) { %>
             </div>
-    <!-- <%if (loggedIn === true) { %> -->
+         <% } %> 
         </div>
-    <!-- <% } %> -->
-    <div class="contact-info">
-            <div class="well jumbotron ">
-                    <h2>Contact Info</h2>
-                    <p>Enail: email@email.com</p>
-                    <p>Landline: 01484 888888</p>
-                    <p>Mobile: 07888 888888</p>
-                </div>  
-            </div>
+    </div>
+</div>
+            <%if (loggedIn !== true) { %> 
+                <div class="contact-info">
+                        <div class="">
+                            <div class="contact-helper">
+                                <h2>Contact Info</h2>
+                                <p>Email: email@email.com</p>
+                                <p>Landline: 01484 888888</p>
+                                <p>Mobile: 07888 888888</p>
+                            </div>
+                        </div>  
+                </div>
+            <% } %> 
+
+    </div>
 </div>
 </main>
 

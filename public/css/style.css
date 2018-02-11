@@ -5,7 +5,8 @@
 
 /***************          Elements                     ***************/
 header {
-  margin-bottom: 2em;
+  padding-bottom: 1em;
+  
 }
 
 ul {
@@ -43,11 +44,12 @@ li {
   margin-left: 1em;
 }
 .nav-brand-width-helper {
-  width: 66%;
+  width: 100%;
+  text-align: center;
 }
 .nav-links {
   margin-top: 30px;
-  text-align: right;
+  text-align: center;
 }
 .nav-links li {
   font-size: calc(100% + 0.3em);
@@ -69,6 +71,22 @@ li {
 
 /***************          Layout                       ***************/
 
+.col-cust-9 {
+  width: 75%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-cust-12 {
+  width: 100%;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 /***************          Content                       ***************/
 .tagline-text-helper {
   text-align: center;
@@ -86,14 +104,23 @@ li {
  }
 div.jumbotron {
   padding: 20px 20px 20px 20px !important;
-  background-color: rgba(156, 4, 136, 0.05) !important;
-  border-top: 5px rgba(156, 4, 136, 0.05) solid; 
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-top: 5px rgba(255, 255, 255, 0.05) solid; 
   border-radius:1px; 
+  text-align: center;
+}
+body {
+  padding-top: 0px;
+}
+.main-content{
+  width: 95%;
+  margin: 0px auto 0px auto;
 }
 .container-fluid {
   padding-right: 0px !important;
   padding-left: 0px !important;
-  border-radius:10px;
+  border-bottom-left-radius:  6em;
+  border-bottom-right-radius:  6em;
   border-top: 5px;
  background-color: rgba(156, 4, 136, 0.05) !important;
   border-top: 5px rgba(156, 4, 136, 0.05) solid; 
@@ -103,11 +130,11 @@ div.jumbotron {
 }
 .contact-info-left {
   text-align: left;
-  line-height: 0.9em;
+  line-height: 1.3em;
 }
 .contact-info-right {
   text-align: right;
-  line-height: 0.9em;
+  line-height: 1.3em;
 }
 .contact-holder {
   margin: 0em 5em 0em 5em;
@@ -135,7 +162,8 @@ div.jumbotron {
   border-radius: 1em;
 }
 .hat img:hover {
-  z-index: 5;
+  z-index: 9999;
+  position: relative;
   transform: scale(2, 2);
   transition: all 0.3s ease-out;
   transition: all 0.3s ease-in;
@@ -155,9 +183,9 @@ div.jumbotron {
 } 
 
 .contact-info{
-  float: left;
-  padding: 0px 0px 0px 25px;
-  width: 36.4%;
+  float: right;
+  padding: 6em 1em 0px 0px;
+  width: 25%;
 }
 
 .hat-details-admin{
@@ -175,15 +203,41 @@ div.jumbotron {
   background: rgba(0, 0, 0, 0);
   border-radius: 1em;
 }
+.hat-upload-admin{
+  display: inline-flex !important;
+}
 .create-new{
   text-align: center;
+  border-bottom-style: dashed;
+  border-width: .1em;
+  border-color: rgb(245, 189, 237);
+  line-height: 5em;
+  display: grid;
 }
+
 
 .col-xs-12 {
   background-color: rgba(156, 4, 136, 0.05) !important;
   border-radius: 1em;
   padding-top: 1em;
   padding-bottom: 1em; 
+}
+.contact-helper {
+  height: 11em;
+  margin-bottom: 30px;
+  color: inherit;
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+  text-align: right;
+}
+
+.remove-bg-colour {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+.footer-helper{
+  border-top-right-radius: 10em;
+  border-top-left-radius: 10em;
 }
 /***************          Images                        ***************/
 .image-container {
@@ -244,12 +298,42 @@ img {
     margin-bottom: 2em;
     min-height: 8em !important;
   }
-
+  .contact-info{
+    display: inline-block;
+    width: 100%;
+    float: none;
+    padding: 0px 0px 0px 0px;
+  }
+  .contact-helper {
+    text-align: center
+  }
+  .col-cust-9 {
+    width: auto;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .col-cust-12 {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  header {
+    padding-bottom: 50px;
+    
+  }
 }
 
 
 
 @media (max-width: 600px) {
+  header {
+    padding-bottom: 1em;
+    
+  }
   img {
     width: 100%;
   }
@@ -257,8 +341,10 @@ img {
     width: 100%;
   }
   .contact-info {
-    font: 1em;
-    display: contents;
+    display: inline-block;
+    width: 100%;
+    float: none;
+    padding: 0px 0px 0px 0px;
   }
   .navbar {
     margin-bottom: 2em;
@@ -289,6 +375,7 @@ img {
   }
   .nav-links-width-helper {
     width: 100%;
+    text-align: center;
   }
   li {
     padding: 0px 0px 5px 15px;

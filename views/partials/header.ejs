@@ -2,16 +2,17 @@
     <div class="container-fluid">
         <div class="navbar-header-helper">
             <div class="nav-brand-width-helper">
-                <a class="navbar-brand-helper" href="/">
+                <a href="/">
                     <!-- <span class="glyphicon glyphicon glyphicon-home"></span> -->
-                    Barb's &  Aud's
-                </a>
-                <br>
-                <a class="navbar-brand-helper navbar-brand-description" href="/">
-                    Hats  & Fascinators
+                   <p class="navbar-brand-helper" >
+                       Barb's &  Aud's
+                    <br>
+                     &nbsp; Hats  & Fascinators
+                 </p>
                 </a>
             </div>
-            <div class="nav-links-width-helper">
+        </div>
+        <div class="nav-links-width-helper">
                 <ul class="nav-links">
                     <li class="nav-link"><a href="/">Home</a></li>
                     <li class="nav-link"><a href="/about">About Us</a></li>
@@ -19,16 +20,5 @@
                     <li class="nav-link"><a href="/contact">Contact</a></li>
                 </ul>
             </div>
-        </div>
     </div>
-    <%if (loggedIn === true) { %>
-        <div class="admin-container">
-            <div class="navbar-admin-helper">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Edit</a></li>
-                        <li><a href="#">Stats</a></li>
-                    </ul>
-            </div>
-        </div>
-    <% } %>
 </nav>
