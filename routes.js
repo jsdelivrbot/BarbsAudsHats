@@ -1,7 +1,7 @@
 module.exports = function(app, passport, fileUpload, util, path) {
 
 
-const Fascinator       		= require('./models/fascinator');
+const HatContoller          = require('./controller/hatController')
 var loggedIn = false;
     // =====================================
     // ============== ROUTES ===============
@@ -44,70 +44,17 @@ var loggedIn = false;
         if (req.user)  loggedIn = req.isAuthenticated(), 
                        dynamic_content_width = "col-cust-12";
         else  loggedIn = false;
-        Fascinator.find({}, function(err, fascinators) {
-        if (err) throw err;
+        HatContoller.hat_read_get(req, res, loggedIn, dynamic_content_width);
 
-        var lastCode;
-        fascinators.forEach(function(fascinator){
-            lastCode = Number(fascinator.code.replace(/\D/g,''));
-            lastCode = "F" + Number(lastCode +1);
-        })
-
-            res.render('pages/fascinators', {
-            "fascinators" : fascinators,
-            loggedIn: loggedIn,
-            dynamic_width: dynamic_content_width,
-            lastCode, lastCode
-            });
-        });
     });
     app.post('/fascinators', function(req, res) {
         if (!req.files.upload)
         return res.status(400).send('No files were uploaded.');
-     
-      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-      let imageToSave = req.files.upload;
-        console.log(imageToSave.name)
-      // Use the mv() method to place the file somewhere on your server
-      imageToSave.mv('./public/images/facinators/'+ imageToSave.name, function(err) {
-        if (err)
-          return res.status(500).send(err);
-     
-        //res.send('File uploaded!');
-      });
-
-
-    var fascinator = new Fascinator({
-        _id: req.body.id,
-        code: req.body.code,
-        price: req.body.price,
-        image: req.files.upload.name
-    })
-    fascinator.save(function(err) {
-            if(err) console.log("Problems saving :( - " + err)
-            else res.redirect('/fascinators');
-        })
+        HatContoller.hat_create_post(req, res);
     });
-    app.post('/fascinators_update', function(req, res) {
-        var fascinator = new Fascinator({
-            _id: req.body.id,
-            code: req.body.code,
-            price: req.body.price,
-            image: req.body.image
-        })
-        if(req.body.action === "update"){
-            Fascinator.findByIdAndUpdate(req.body.id, fascinator, function(err, model) {
-                if (err)  console.log(err)
-                else      res.redirect('/fascinators');
-                })
-        }
-        if(req.body.action === "delete"){
-            Fascinator.findByIdAndRemove(req.body.id, fascinator, function(err, model) {
-                if (err)  console.log(err)
-                else      res.redirect('/fascinators');
-                })
-        }
 
+    app.post('/fascinators_update', function(req, res) {
+            HatContoller.hat_update_post(req, res);
         });
     // =====================================
     // LOGIN PAGE ==========================

@@ -17,12 +17,18 @@ ul {
 li {
   display: inline;
 }
+
+article, aside, details, figcaption, 
+figure, footer, header, hgroup, main,
+nav, section, summary {
+  display: inline !important;
+}
 /***************          Fonts                          ***************/
 
 
 /***************          Navigation                     ***************/
 .navbar {
-  min-height: 8em !important;
+  min-height: 4em !important;
 }
 
 .navbar-helper {
@@ -48,7 +54,7 @@ li {
   text-align: center;
 }
 .nav-links {
-  margin-top: 30px;
+  margin-top: 1em;
   text-align: center;
 }
 .nav-links li {
@@ -64,9 +70,7 @@ li {
   height: 3em;
 }
 
-.navbar-admin-helper {
 
-}
 
 
 /***************          Layout                       ***************/
@@ -88,6 +92,14 @@ li {
 }
 
 /***************          Content                       ***************/
+.main-container{
+  display: inline-block;
+border-style: dotted;
+border-color: rgba(156, 4, 136, 0.10) !important;
+margin-top: -23px;
+background-color: rgba(156, 4, 136, 0.01);
+}
+
 .tagline-text-helper {
   text-align: center;
   margin-left: auto;
@@ -119,11 +131,12 @@ body {
 .container-fluid {
   padding-right: 0px !important;
   padding-left: 0px !important;
-  border-bottom-left-radius:  6em;
-  border-bottom-right-radius:  6em;
+  border-top-left-radius:  3em;
+  border-top-right-radius:  3em;
   border-top: 5px;
- background-color: rgba(156, 4, 136, 0.05) !important;
+ background-color: rgba(156, 4, 136, 0.10) !important;
   border-top: 5px rgba(156, 4, 136, 0.05) solid; 
+  margin-top: -1.5em;
 }
 .container .jumbotron {
   border-radius: 0px !important;
@@ -217,7 +230,7 @@ body {
 
 
 .col-xs-12 {
-  background-color: rgba(156, 4, 136, 0.05) !important;
+  background-color: rgba(156, 4, 136, 0.10) !important;
   border-radius: 1em;
   padding-top: 1em;
   padding-bottom: 1em; 
@@ -236,8 +249,17 @@ body {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 .footer-helper{
-  border-top-right-radius: 10em;
-  border-top-left-radius: 10em;
+  padding-right: 0px !important;
+padding-left: 0px !important;
+/* border-top: 5px; */
+/* background-color: rgba(156, 4, 136, 0.10) !important;
+border-top: 5px rgba(156, 4, 136, 0.05) solid; */
+margin-top: -0.1em;
+  border-top-right-radius: 0em !important;
+  border-top-left-radius: 0em !important;
+  border-bottom-right-radius: 3em;
+  border-bottom-left-radius: 3em;
+
 }
 /***************          Images                        ***************/
 .image-container {
