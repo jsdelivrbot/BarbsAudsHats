@@ -39,8 +39,8 @@ var loggedIn = false;
     // FASCINATORS PAGE ====================
     // =====================================
     app.get('/fascinators', function(req, res) {
-        dynamic_content_width = "col-cust-9"
-        //var req = {user: "admin"};
+        dynamic_content_width = "col-cust-12"
+        
         if (req.user)  loggedIn = req.isAuthenticated(), 
                        dynamic_content_width = "col-cust-12";
         else  loggedIn = false;

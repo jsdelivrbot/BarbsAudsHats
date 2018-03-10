@@ -46,28 +46,8 @@
 	 -->
     </div>
     <% include ../partials/contact %>
-    <div class="jumbotron col-xs-12">
-            <h3 class="map-header">How to find us</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: 53.644778, lng: -1.737702};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29gE73HoTMA_CPaydxzNLY_uJ7I1QoMU&callback=initMap">
-    </script>
+    <% include ../partials/find %>
 
-
-    </div>
 </div>
 </main>
 

@@ -56,6 +56,7 @@ exports.hat_update_post = function(req, res){
             })
     }
     if(req.body.action === "delete"){
+        console.log(req.body.id + " " + fascinator)
         Fascinator.findByIdAndRemove(req.body.id, fascinator, function(err, model) {
             if (err)  console.log(err)
             else      res.redirect('/fascinators');

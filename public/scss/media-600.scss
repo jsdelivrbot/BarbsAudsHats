@@ -1,0 +1,110 @@
+@media (max-width: 600px) {
+    header {
+        padding-bottom: 1em;
+    }
+    img {
+        width: 100%;
+    }
+    .main-container {
+        display: inline-block;
+        margin-top: -23px;
+        background-color: rgba(156, 4, 136, 0.01);
+    }
+    .image-container {
+        width: 32%;
+    }
+    .text-image-helper {
+        font: 400 2em 'Oleo Script', Helvetica, sans-serif;
+        color: #ffffff;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        line-height: 1.2;
+        align-content: center;
+    }
+    .contact-info {
+        display: inline-block;
+        width: 100%;
+        float: none;
+        padding: 0px 0px 0px 0px;
+    }
+    .navbar {
+        margin-bottom: 2em;
+        min-height: 10em !important;
+    }
+    .navbar-brand-helper {
+        font: 1em;
+    }
+    .navbar-header-helper {
+        width: 100%;
+        display: block;
+    }
+    .navbar-brand-description {
+        margin-left: 0em;
+    }
+    .nav-brand-width-helper {
+        width: 100%;
+        text-align: center;
+    }
+    .image-container:hover img {
+        transform: scale(1.1, 1.1);
+        transition: all 0.3s ease-out;
+        transition: all 0.3s ease-in;
+    }
+    .nav-links {
+        text-align: center;
+        margin-top: 5px;
+    }
+    .nav-links-width-helper {
+        width: 100%;
+        text-align: center;
+    }
+    li {
+        padding: 0px 0px 5px 15px;
+        display: inline-block;
+    }
+    body {
+        font-size: 1.5em !important;
+    }
+    .contact-holder {
+        margin: 0px;
+        display: grid;
+    }
+    .contact-info-left {
+        display: block;
+        text-align: center;
+        line-height: 1em;
+    }
+    .contact-info-right {
+        display: block;
+        text-align: center;
+        line-height: 1em;
+    }
+    .contact-width {
+        width: 100%;
+    }
+    .sidenav {
+        margin-top: 0px;
+        background-color: rgb(255, 247, 254);
+        height: 100%;
+    }
+    .contact-tab {
+        display: none;
+    }
+    .find-tab {
+        display: none;
+    }
+    .find-sidenav {
+        width: inherit;
+        position: inherit;
+        z-index: inherit;
+        top: inherit;
+        right: inherit;
+        background-color: transparent;
+        overflow-x: inherit;
+        transition: 0.5s;
+        border: 0px;
+        border-top-left-radius: 0em;
+        margin-top: 0em;
+        border-bottom-left-radius: 3em;
+    }
+}

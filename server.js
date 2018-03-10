@@ -19,10 +19,26 @@ const flash    = require('connect-flash');
 
 const fileUpload = require('express-fileupload');
 const util = require('util');
-
+const concat = require('concat');
+var fs = require('file-system');
 const reload = require('reload');
+var compressor = require('node-minify');
 
 require('./config/passport')(passport);
+
+concat(['./public/scss/fascinators.scss', './public/scss/index.scss', './public/scss/partials.scss', './public/scss/login.scss',
+      './public/scss/main.scss', './public/scss/media-400.scss', './public/scss/media-600.scss', 
+      './public/scss/media-1000.scss',  './public/scss/screen-450.scss'], 
+      './public/scss/style-concat.scss');
+
+var sass = require('node-sass');
+sass.render({
+  file: './public/scss/style-concat.scss',
+  outFile: './public/css/style-min.css'
+}, function(err, result) {
+  console.log(result)
+  fs.writeFile('./public/css/style-min.css', result.css);
+});
 
 mongoose.connect('mongodb://localhost:27017/barbsaudshats'); // connect to our database
 
@@ -40,10 +56,14 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+
 require('./routes.js')(app, passport, fileUpload, util);
 
-//static filse prefix
+
 app.use(express.static('public'));
+
+
+
 
 const server = http.createServer(app)
 

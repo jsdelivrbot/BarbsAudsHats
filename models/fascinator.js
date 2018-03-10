@@ -12,4 +12,4 @@ var fascinatorSchema = new Schema({
 });
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model('fascinator', fascinatorSchema);
+module.exports = mongoose.model('hats', fascinatorSchema);

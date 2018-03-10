@@ -1,0 +1,93 @@
+/***************          Media Query                   ***************/
+
+@media (max-width: 1000px) {
+    .navbar {
+        margin-bottom: 2em;
+        min-height: 8em !important;
+    }
+    .main-container {
+        display: inline-block;
+        margin-top: -23px;
+    }
+    .contact-info {
+        display: inline-block;
+        width: 100%;
+        float: none;
+        padding: 0px 0px 0px 0px;
+    }
+    .contact-helper {
+        text-align: center
+    }
+    .col-cust-9 {
+        width: auto;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .col-cust-12 {
+        width: 100%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    header {
+        padding-bottom: 50px;
+    }
+    .sidenav {
+        margin-top: 0px;
+        height: 100%;
+        border-bottom-right-radius: 0em;
+    }
+    .contact-tab {
+        display: none;
+    }
+    .find-tab {
+        display: none;
+    }
+    .find-sidenav {
+        width: 100%;
+        position: inherit;
+        z-index: inherit;
+        top: inherit;
+        right: inherit;
+        background-color: transparent;
+        overflow-x: inherit;
+        transition: 0.5s;
+        border: 0px;
+        border-top-left-radius: 0em;
+        margin-top: 0em;
+        border-bottom-left-radius: 0em;
+        margin-bottom: 1em;
+        display: none;
+    }
+    .contact-sidenav {
+        width: 100%;
+        position: inherit;
+        z-index: inherit;
+        top: inherit;
+        right: inherit;
+        background-color: transparent;
+        overflow-x: inherit;
+        transition: 0.5s;
+        border: 0px;
+        border-top-left-radius: 1em;
+        margin-top: 0em;
+        border-bottom-left-radius: 0em;
+        margin-bottom: 1em;
+        display: none;
+    }
+    .contact-width {
+        width: 45%;
+    }
+    .contact-float-left {
+        float: left
+    }
+    .contact-float-right {
+        float: right
+    }
+    .container-title {
+        margin-bottom: 1em;
+    }
+}

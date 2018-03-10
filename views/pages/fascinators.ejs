@@ -1,111 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <% include ../partials/head %>
 </head>
+
 <body class="container">
 
-<header>
-    <% include ../partials/header %>
-</header>
+    <header>
+        <% include ../partials/header %>
+    </header>
 
-<main>
-<div class="main-container">
-<div class="main-content">
-    <div class=<%= dynamic_content_width %>>    
-        <div class="jumbotron">
-            <h1>Fascinators</h1>
-            <p>Our facinators are designed to the highest quality, with you in mind. We aim to offer you our
-                years of expertise, talent and experience to create a unique and beautiful facinator to make you stand head and
-                sholders above the rest!
-            </p>
+    <main>
+        <div class="main-container">
+                <div class=<%=dynamic_content_width %>>
+                    <div class="jumbotron">
+                        <h1>Fascinators</h1>
+                        <p>Our facinators are designed to the highest quality, with you in mind. We aim to offer you our years
+                            of expertise, talent and experience to create a unique and beautiful facinator to make you stand
+                            head and sholders above the rest!
+                        </p>
 
-   <%if (loggedIn === true) { %>
-        <div class="">
-            <div class="create-new" id="update">
-                <h3 class="pull-left">Create new</h3>
-                <form ref='uploadForm' 
-                      id='uploadForm'  
-                      action="/fascinators" 
-                      method="post"
-                      encType="multipart/form-data">
-                    <input type="text" 
-                           name="code" 
-                           class="hat-details-admin" 
-                           value=<%=lastCode%>
-                           required>
-                    <input type="number" 
-                           step="any" 
-                           name="price" 
-                           class="hat-details-admin" 
-                           placeholder="Price"
-                           required/>
-                    <input type="file" 
-                           name="upload" 
-                           class="hat-upload-admin" 
-                           placeholder="Image"
-                           required/>
-                    <button type="submit" class="btn btn-warning btn-md ">Create</button>
-                </form>
-            </div>
-       
-                <br>
-     <% } %> 
-        <div class="content-holder">
-                <div class="hat-collection image-holder">
-                    <ul>
-                        <%fascinators.forEach(function(fascinator){%>
-                        <div class="hat">
-                            <div class="hat-details">
-                                <li class="hat-info"><%=fascinator.code%> <br> £<%=fascinator.price%></li>
-                                <img alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>" >
-                            </div>
-                             <%if (loggedIn === true) { %> 
-                                    <form action="/fascinators_update" 
-                                          method="post"
-                                          encType="multipart/form-data">
-                                        <div id="update">
-                                            <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
-                                            <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
-                                            <input type="number" step="any" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
-                                            <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
-                                            <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
-                                            <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
-                                        </div>
+                        <%if (loggedIn === true) { %>
+                            <div class="">
+                                <div class="create-new" id="update">
+                                    <h3 class="pull-left">Create new</h3>
+                                    <form ref='uploadForm' id='uploadForm' action="/fascinators" method="post" encType="multipart/form-data">
+                                        <input type="text" name="code" class="hat-details-admin" value=<%=lastCode%> required>
+                                        <input type="number" step="any" name="price" class="hat-details-admin" placeholder="Price" required/>
+                                        <input type="file" name="upload" class="hat-upload-admin" placeholder="Image" required/>
+                                        <button type="submit" class="btn btn-warning btn-md ">Create</button>
                                     </form>
-                                <% } %> 
+                                </div>
+
+                                <br>
+                                <% } %>
+                                    <div class="content-holder">
+                                        <div class="hat-collection image-holder">
+                                            <ul>
+                                                <%fascinators.forEach(function(fascinator){%>
+                                                    <div class="hat">
+                                                        <div class="hat-details">
+                                                            <li class="hat-info-<%=fascinator.code%>">
+                                                                <%=fascinator.code%>
+                                                                    <br> £
+                                                                    <%=fascinator.price%>
+                                                            </li>
+                                                            <img id="hat-image-<%=fascinator.code%>" alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>">
+                                                        </div>
+                                                        <%if (loggedIn === true) { %>
+                                                            <form action="/fascinators_update" method="post" encType="multipart/form-data">
+                                                                <div id="update">
+                                                                    <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
+                                                                    <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
+                                                                    <input type="number" step="any" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
+                                                                    <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
+                                                                    <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
+                                                                    <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
+                                                                </div>
+                                                            </form>
+                                                            <% } %>
+                                                    </div>
+                                                    <%})%>
+
+                                            </ul>
+                                        </div>
+                                        <%if (loggedIn === true) { %>
+                                    </div>
+                                    <% } %>
                             </div>
-                        <%})%>
-                    
-                    </ul>
+                    </div>
                 </div>
-        <%if (loggedIn === true) { %>
+                <% include ../partials/contact %>
+                <% include ../partials/find %>
             </div>
-         <% } %> 
         </div>
-    </div>
-</div>
-            <%if (loggedIn !== true) { %> 
-                <div class="contact-info">
-                        <div class="">
-                            <div class="contact-helper">
-                                <h2>Contact Info</h2>
-                                <p>Email: email@email.com</p>
-                                <p>Landline: 01484 888888</p>
-                                <p>Mobile: 07888 888888</p>
-                            </div>
-                        </div>  
-                </div>
-            <% } %> 
-
-    </div>
-</div>
-</div>
-</main>
-
-<footer>
-    <% include ../partials/footer %>
-</footer>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
 
 </body>
+
 </html>
+<script>
+    $(function(){
+        $('img[id^=hat-image-]').mouseenter(function(){
+            var info = $(this).prev()[0].classList[0];
+            var image = $(this)[0].id;
+            console.log(image)
+            $('img:not(#' + image + ')').stop().animate({
+                "opacity": .3
+            }), 200;
+
+            // $('body > :not(:has(#'+image+'))').fadeTo("slow" , 0.5)
+            // $('div > :not(:has(#'+image+'))').fadeTo("slow" , 0.5)
+            $("." + info).css('display','inline');
+        })
+        $('img[id^=hat-image-]').mouseleave(function(){
+            var info = $(this).prev()[0].classList[0];
+            var image = $(this)[0].id;
+            console.log('Test');
+            $('img:not(#' + image + ')').stop().animate({
+                "opacity": 1
+            }), 200;
+            $("." + info).css('display','none');
+        })
+    });
+
+
+</script>
