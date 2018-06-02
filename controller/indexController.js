@@ -6,8 +6,8 @@ exports.index_create_post = function (req, res) {
     var index = new Content({
         page: req.body.page,
         content: [{
-            text: req.body.text,
-            type: req.body.type
+            text: "Test",//req.body.text,
+            type: "test"//req.body.type
         }],
 
     });
