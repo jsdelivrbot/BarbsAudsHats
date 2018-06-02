@@ -70,7 +70,7 @@ const server = http.createServer(app)
 // Reload script
 reload(app)
 
-server.listen(3000, '0.0.0.0',function () {
+server.listen(process.env.PORT ||3000, '0.0.0.0',function () {
   console.log(mongoose.connection.readyState);
   console.log('Example app listening on port 3000!')
 })
