@@ -33,50 +33,50 @@ summary {
     display: inline !important;
 }
 
-div {
-    -webkit-animation: somename 0.7ss;
-    -moz-animation: somename 0.7s;
-    animation: somename 0.7s;
-}
+// div {
+//     -webkit-animation: somename 0.7ss;
+//     -moz-animation: somename 0.7s;
+//     animation: somename 0.7s;
+// }
 
-@-webkit-keyframes somename {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(20px);
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
+// @-webkit-keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
 
-@-moz-keyframes somename {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(20px);
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
+// @-moz-keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
 
-@keyframes somename {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(20px);
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-}
+// @keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
 
 
 div.jumbotron {
@@ -91,7 +91,20 @@ div.jumbotron {
     display: inline-flex !important;
 }
 
-
+/***************          Content admin           ***************/
+.content-details-admin{
+    width: 100%;
+    font-size: 1em;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    line-height: 1.2em;
+  }
+  .content-details-admin:focus{
+    border-color: rgb(245, 189, 237) ;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 1em;
+  }
 /***************          Custom columns              ***************/
 
 .col-cust-3 {
