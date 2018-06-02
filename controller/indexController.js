@@ -28,7 +28,7 @@ exports.index_read_get = function (req, res, cpage) {
         res.render('pages' + cpage, {
             loggedIn:loggedIn,
             cpage: cpage,
-            tagline: results.content[0]
+            tagline: "test"//results.content[0]
         });
     });
 }
