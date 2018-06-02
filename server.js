@@ -40,14 +40,17 @@ sass.render({
   fs.writeFile('./public/css/style-min.css', result.css);
 });
 
-mongoose.connect('mongodb://localhost:27017/barbsaudshats'); // connect to our database
+mongoose.connect('mongodb://localhost:27017/barbsaudshats', function(err, db){
+  // console.log(err);
+  // console.log(db);
+}); // connect to our database
 
 app.use(fileUpload());
 
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
-// app.use(bodyParser.json()); // get information from html forms
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
@@ -62,15 +65,12 @@ require('./routes.js')(app, passport, fileUpload, util);
 
 app.use(express.static('public'));
 
-
-
-
 const server = http.createServer(app)
 
 // Reload script
 reload(app)
 
-
 server.listen(3000, '0.0.0.0',function () {
+  console.log(mongoose.connection.readyState);
   console.log('Example app listening on port 3000!')
 })

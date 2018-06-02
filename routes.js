@@ -1,7 +1,8 @@
 module.exports = function(app, passport, fileUpload, util, path) {
 
 
-const HatContoller          = require('./controller/hatController')
+const HatContoller          = require('./controller/hatController');
+const IndexController     = require('./controller/indexController')
 var loggedIn = false;
     // =====================================
     // ============== ROUTES ===============
@@ -11,20 +12,11 @@ var loggedIn = false;
     // HOME PAGE ===========================
     // =====================================
     app.get('/', function (req, res) {
-        console.log("Loggedin? " + req.isAuthenticated())
-        const title = "Barbs & Auds Hats and Facinators"
-        const tagline = "Bespoke hats & facinators tailored to the event you're lucky enough to be attending"
-        
-        if (req.user)  loggedIn = true;
-
-
-        res.render('pages/index', {
-            title: title, 
-            tagline: tagline,
-            loggedIn: loggedIn,
-            error: null
-            });
+       IndexController.index_read_get(req, res, '/index')
     });
+    app.get('/index', function (req, res) {
+        IndexController.index_read_get(req, res, '/index')
+     });
     // =====================================
     // ABOUT PAGE ==========================
     // =====================================
@@ -35,6 +27,20 @@ var loggedIn = false;
             }
         );
     });
+    // =====================================
+    // Content PAGE ========================
+    // =====================================
+
+    app.post('/content_create', function(req, res) {
+        IndexController.index_create_post(req, res);
+        next();
+    });
+
+    app.post('/content_update', function(req, res) {
+        IndexController.index_update_post(req, res);
+    });
+
+
     // =====================================
     // FASCINATORS PAGE ====================
     // =====================================
@@ -85,7 +91,7 @@ var loggedIn = false;
         });
     });
     // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
+    app.post('/signup',passport.authenticate('local-signup', {
         successRedirect : '/profile', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages

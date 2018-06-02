@@ -1,3 +1,4 @@
+'use strict'
 const Hat = require('../models/hat');
 const Fascinator = require('../models/fascinator');
 
@@ -11,7 +12,6 @@ exports.hat_create_post = function(req, res){
       });
 
       var fascinator = new Hat({
-        _id: req.body.id,
         code: req.body.code,
         price: req.body.price,
         image: req.files.upload.name
@@ -49,6 +49,7 @@ exports.hat_update_post = function(req, res){
         price: req.body.price,
         image: req.body.image
     })
+    console.log(fascinator);
     if(req.body.action === "update"){
         Fascinator.findByIdAndUpdate(req.body.id, fascinator, function(err, model) {
             if (err)  console.log(err)
