@@ -1,0 +1,227 @@
+/***************          Header                     ***************/
+
+$primary-color: rgba(156, 4, 136, 0.05);
+$font:400 75px/0.6 'Tangerine',
+cursive;
+.navbar {
+    min-height: 4em !important;
+}
+
+.navbar-helper {
+    height: 1px;
+    display: contents;
+}
+
+.navbar-header-helper {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 20px 20px 0px 20px !important;
+}
+
+.navbar-brand-helper {
+    font: $font;
+    color: rgb(0, 0, 0);
+    text-shadow: 5px 2px 0px rgba(54, 46, 54, 0.17);
+}
+
+.navbar-brand-description {
+    margin-left: 1em;
+}
+
+.nav-brand-width-helper {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.nav-links li {
+    font-size: calc(100% + 0.3em);
+    padding: 0px 0px 5px 10px;
+}
+
+.nav-link a {
+    color: rgb(0, 0, 0);
+}
+
+.admin-container {
+    background-color: $primary-color !important;
+    height: 3em;
+}
+
+.tagline-text-helper {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/***************          Find us Map                  ***************/
+
+.map-header {
+    text-align: center;
+}
+
+#map {
+    height: 262px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.find-tab {
+    padding: 1em;
+    position: fixed;
+    transition: 0.5s;
+    top: 15em;
+    margin-left: -3em;
+}
+
+.find-text {
+    font-size: 2em;
+    writing-mode: sideways-rl;
+    text-orientation: upright;
+    width: 1em;
+}
+
+.find-sidenav {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(255, 247, 254);
+    overflow-x: hidden;
+    transition: 0.5s;
+    border: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-top-left-radius: 3em;
+    margin-top: 12em;
+    border-bottom-left-radius: 3em;
+}
+
+.find-sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.find-sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.find-sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/***************          Contact                     ***************/
+
+.contact-info-left {
+    text-align: left;
+    line-height: 1.3em;
+}
+
+.contact-info-right {
+    text-align: right;
+    line-height: 1.3em;
+}
+
+.contact-holder {
+    margin: 0em 5em 0em 5em;
+    display: flex;
+}
+
+.contact-width {
+    width: 100%;
+}
+
+.contact-info-helper {
+    bottom: calc(10% + 1px);
+    border-right: dotted 2px rgba(156, 4, 136, 0.226);
+}
+
+.contact-helper {
+    height: 11em;
+    margin-bottom: 30px;
+    color: inherit;
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+    text-align: right;
+}
+
+.contact-tab {
+    padding: 1em;
+    position: fixed;
+    transition: 0.5s;
+    top: 15em;
+}
+
+.contact-text {
+    font-size: 2em;
+    writing-mode: sideways-rl;
+    text-orientation: upright;
+    width: 1em;
+}
+
+.contact-sidenav {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 247, 254);
+    overflow-x: hidden;
+    transition: 0.5s;
+    border: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-top-right-radius: 3em;
+    margin-top: 15em;
+    border-bottom-right-radius: 3em;
+}
+
+.contact-sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.contact-sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.contact-sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/***************          Footer                     ***************/
+
+.footer-helper {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    background-color: rgba(156, 4, 136, 0.10) !important;
+    margin-top: -0.2em;
+    min-height: 2em;
+    border-top-right-radius: 0em !important;
+    border-top-left-radius: 0em !important;
+    border-bottom-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+}

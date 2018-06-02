@@ -1,0 +1,235 @@
+/***************          Elements                     ***************/
+
+body {
+    padding-top: 0px;
+}
+
+header {
+    padding-bottom: 1em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: inline !important;
+}
+
+// div {
+//     -webkit-animation: somename 0.7ss;
+//     -moz-animation: somename 0.7s;
+//     animation: somename 0.7s;
+// }
+
+// @-webkit-keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
+
+// @-moz-keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
+
+// @keyframes somename {
+//     0% {
+//         opacity: 0;
+//         -webkit-transform: translateY(20px);
+//         transform: translateY(20px);
+//     }
+//     100% {
+//         opacity: 1;
+//         -webkit-transform: translateY(0);
+//         transform: translateY(0);
+//     }
+// }
+
+
+div.jumbotron {
+    padding: 20px 20px 20px 20px !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-top: 5px rgba(255, 255, 255, 0.05) solid;
+    border-radius: 1px;
+    text-align: center;
+}
+
+.glyphicon {
+    display: inline-flex !important;
+}
+
+/***************          Content admin           ***************/
+.content-details-admin{
+    width: 100%;
+    font-size: 1em;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    text-align: center;
+    line-height: 1.2em;
+  }
+  .content-details-admin:focus{
+    border-color: rgb(245, 189, 237) ;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 1em;
+  }
+/***************          Custom columns              ***************/
+
+.col-cust-3 {
+    width: 25%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-cust-9 {
+    width: 75%;
+    float: right;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-cust-12 {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.main-container {
+    display: inline-block;
+    border-style: dotted;
+    border-color: rgba(156, 4, 136, 0.10) !important;
+    margin-top: -1.5em;
+    background-color: rgba(156, 4, 136, 0.01);
+}
+
+.main-content {
+    width: 95%;
+    margin: 0px auto 0px auto;
+}
+
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    border-top: 5px;
+    background-color: rgba(156, 4, 136, 0.10) !important;
+    border-top: 5px rgba(156, 4, 136, 0.05) solid;
+    margin-top: -1.5em;
+}
+
+.container .jumbotron {
+    border-radius: 0px !important;
+}
+
+.col-xs-12 {
+    background-color: rgba(156, 4, 136, 0.10) !important;
+    border-radius: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.remove-bg-colour {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+/***************          Animation                     ***************/
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+
+/***************          Alerts Popup              ***************/
+
+#output {
+    position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success {
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger {
+    background: rgb(228, 105, 105);
+}

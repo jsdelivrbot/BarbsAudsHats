@@ -1,0 +1,63 @@
+<a name="find"></a>
+<div id="findSidenav" class="find-sidenav animated">
+    <div id="find-tab" class="find-tab">
+        <!-- <span style="cursor:pointer" class="find-text glyphicon glyphicon-map-marker" onclick="openFindNav()">
+            Find Us</span> -->
+    </div>
+    <div class="jumbotron">
+        <h2 class="container-title">Showroom Address</h2>
+        <div class="contact-width contact-float-left">
+            <div>
+                <p>634a Wakefield Road</p>
+                <p>Waterloo</p>
+                <p>Huddersfield</p>
+                <p>HD5 0PZ</p>
+            </div>
+        </div>
+        <div class="contact-width contact-float-right">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openFindNav() {
+        if($(window).width() < 1000){
+            if (document.getElementById("findSidenav").style.display != "" &&
+            document.getElementById("findSidenav").style.display != "none"    ) {
+                document.getElementById("findSidenav").style.display = "none";
+                } else {
+                    document.getElementById("findSidenav").style.display = "inline-block";
+                }
+            } else {
+                if (document.getElementById("findSidenav").clientWidth != 0) {
+                    closeFindNav();
+                } else {
+                    document.getElementById("findSidenav").style.width = "320px";
+                    document.getElementById("find-tab").style.marginLeft = "-3.8em";
+                }
+            }
+    }
+
+    function closeFindNav() {
+        document.getElementById("findSidenav").style.width = "0";
+        document.getElementById("find-tab").style.marginLeft = "-3em";
+
+    }
+</script>
+<script>
+    function initMap() {
+        var uluru = { lat: 53.644778, lng: -1.737702 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29gE73HoTMA_CPaydxzNLY_uJ7I1QoMU&callback=initMap">
+</script>

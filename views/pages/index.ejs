@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+        <header>
+                <% include ../partials/header %>
+        </header>
+
+        <main>
+                <script>
+                        if (loggedIn === true) {
+                                $(document).on("click", "#gen-content", function () {
+                                        console.log($(this));
+                                        var contentData = $(this)[0].textContent;
+                                        $(".modal-body #current-text").text(contentData);
+                                });
+                        }
+
+                </script>
+                <div class="main-container">
+                        <div class="jumbotron">
+                                <div class="tagline-text-helper">
+                                        <% if (loggedIn === true) { %>
+                                                <p id="gen-content" data-toggle="modal" data-target="#myModal">
+                                                        <%= tagline.text %>
+                                                </p>
+                                        <% } else { %>
+                                                <p id="gen-content">
+                                                        <%= tagline.text %>
+                                                </p>
+                                        <%}%>
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                                <div class="modal-dialog">
+                                                        <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                        <h4 class="modal-title">Modal Heading</h4>
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <div class="modal-body">
+                                                                        <div class="">
+                                                                                <div class="create-new" id="update">
+                                                                                        <form ref='uploadForm' id='uploadForm' action="/content_update" method="post" encType="multipart/form-data">
+                                                                                                <input type="text" name="_id" class="hat-details-admin" value="<%= tagline.id %>" required hidden/>
+                                                                                                <input type="text" name="type" placeholder="type" value="<%= tagline.type %>" class="hat-details-admin" required hidden/>
+                                                                                                <input type="text" name="page" placeholder="page" value="<%= cpage %>" class="hat-details-admin" required hidden/>
+                                                                                                <textarea type="text" cols="40" rows="5" name="text" placeholder="text" value="<%= tagline.text %>" class="content-details-admin"
+                                                                                                        required> <%= tagline.text %></textarea>
+                                                                                                <button type="submit" class="btn btn-warning btn-md ">Update</button>
+                                                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                                                        </form>
+
+                                                                                </div>
+                                                                        </div>
+
+                                                                        <!-- Modal footer -->
+                                                                        <div class="modal-footer">
+                                                                        </div>
+
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="images-holder">
+                                                <a class="home-image-link" href="/fascinators">
+                                                        <div class="image-container">
+
+                                                                <img alt="View Facinators" class="display-image" src="/images/facinators/f8.jpg" />
+                                                                <div class="text-image-holder">
+                                                                        <span class="text-image-helper">Facinators</span>
+                                                                </div>
+                                                        </div>
+                                                </a>
+                                                <a class="home-image-link" href="/facinators">
+                                                        <div class="image-container">
+                                                                <img alt="View Showroom" class="display-image" src="/images/showroom/showroom_005.jpg" />
+                                                                <div class="text-image-holder">
+                                                                        <span class="text-image-helper">Showroom</span>
+                                                                </div>
+                                                        </div>
+                                                </a>
+                                                <a class="home-image-link" href="/facinators">
+                                                        <div class="image-container">
+                                                                <img alt="View Hats" class="display-image" src="/images/hats/hat_013.jpg" />
+                                                                <div class="text-image-holder">
+                                                                        <span class="text-image-helper">Hats</span>
+                                                                </div>
+                                                        </div>
+                                                </a>
+                                        </div>
+                                </div>
+                                <% include ../partials/contact %>
+                                        <% include ../partials/find %>
+
+                        </div>
+        </main>
+
+        <footer>
+                <% include ../partials/footer %>
+        </footer>
+
+</body>
+
+</html>

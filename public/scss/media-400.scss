@@ -1,0 +1,60 @@
+@media (max-width: 400px) {
+    .navbar-brand-helper {
+        font: 400 40px/0.6 'Tangerine', cursive;
+        color: rgb(0, 0, 0);
+        text-shadow: 5px 2px 0px rgba(54, 46, 54, 0.17);
+    }
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-top: 3px;
+        background-color: rgba(156, 4, 136, 0.10) !important;
+        border-top: 5px rgba(156, 4, 136, 0.05) solid;
+        margin-top: -1.5em;
+    }
+    .nav-links li {
+        font-size: calc(100% + 0.1em);
+        padding: 0px 0px 1px 5px;
+    }
+    .login-container {
+        position: relative;
+        width: 300px;
+        margin: 80px auto;
+        padding: 20px 40px 40px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #ccc;
+    }
+    .image-container {
+        width: 75%;
+    }
+    .text-image-helper {
+        font: 400 2em 'Oleo Script', Helvetica, sans-serif;
+        color: #ffffff;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        line-height: 1.2;
+        align-content: center;
+    }
+    #map {
+        width: 95%;
+        margin-bottom: 1em;
+    }
+    .footer-helper {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        margin-top: -0.1em;
+        border-top-right-radius: 0em !important;
+        border-top-left-radius: 0em !important;
+        border-bottom-right-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+    .contact-tab {
+        display: none;
+    }
+    .find-tab {
+        display: none;
+    }
+}
