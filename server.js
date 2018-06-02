@@ -40,7 +40,7 @@ sass.render({
   fs.writeFile('./public/css/style-min.css', result.css);
 });
 
-mongoose.connect('mongodb://localhost:27017/barbsaudshats', function(err, db){
+mongoose.connect('mongodb://alex:12frogs@ds245250.mlab.com:45250/heroku_0sl6xq74', function(err, db){
   // console.log(err);
   // console.log(db);
 }); // connect to our database
