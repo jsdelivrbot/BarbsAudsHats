@@ -19,7 +19,7 @@ exports.hat_create_post = function(req, res){
 
     fascinator.save(function(err) {
         if(err) console.log("Problems saving :( - " + err)
-        else res.redirect(req.url);
+        else res.redirect(req.url.replace('_update',''));
     });
 }
 
