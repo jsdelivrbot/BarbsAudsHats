@@ -10,18 +10,14 @@
     <div class="contact-width contact-float-left">
 
         <div >
-            <span class="glyphicon glyphicon-envelope"></span><p>email@email.com</p>
-            <span class="glyphicon glyphicon-phone-alt"></span><p>01484 888888</p>
-            <span class="glyphicon glyphicon-phone"></span><p>07888 888888</p>
+            <span class="glyphicon glyphicon-envelope"></span><p>barbarabrown50@hotmail.com</p>
+            <span class="glyphicon glyphicon-phone"></span><p>07508 534518</p>
         </div>
     </div>
 
     <div class="contact-width contact-float-right">
         <div>
-                <span><button href="/" class="btn btn-social-icon btn-facebook" style="width:10em">Facebook</button></span><br><br>
-                <span> <button href="/" class="btn btn-social-icon btn-twitter" style="width:10em">Twitter</button></span><br><br>
-                <span><button href="/" class="btn btn-social-icon btn-instagram" style="width:10em">Instagram</button></span><br>
-
+                <span><button onclick="location.href='https://www.facebook.com/madhatter634/';" class="btn btn-social-icon btn-facebook" style="width:10em">Facebook</button></span><br><br>
         </div>
     </div>
 </div>
@@ -40,14 +36,16 @@
                 if(document.getElementById("contactSidenav").clientWidth != 0){
                     closeContactNav();
                 } else {
-                    document.getElementById("contactSidenav").style.width = "320px";
-                    document.getElementById("contact-tab").style.marginLeft = "22em";
+                    document.getElementById("contactSidenav").style.width = "auto";
+                    document.getElementById("contactSidenav").style.height = "auto";
+                    document.getElementById("contactSidenav").style.display = "block";
+                    //document.getElementById("contact-tab").style.marginLeft = "22em";
                 }
             }
         }
         
         function closeContactNav() {
-            document.getElementById("contactSidenav").style.width = "0";
+            //document.getElementById("contactSidenav").style.width = "0";
             document.getElementById("contact-tab").style.marginLeft = "0em";
 
         }

@@ -29,20 +29,23 @@
                 document.getElementById("findSidenav").style.display = "none";
                 } else {
                     document.getElementById("findSidenav").style.display = "inline-block";
+                    document.getElementById("findSidenav").style.height = "auto";
+
                 }
             } else {
                 if (document.getElementById("findSidenav").clientWidth != 0) {
                     closeFindNav();
                 } else {
-                    document.getElementById("findSidenav").style.width = "320px";
-                    document.getElementById("find-tab").style.marginLeft = "-3.8em";
+                    document.getElementById("findSidenav").style.width = "auto";
+                    document.getElementById("findSidenav").style.display = "block";
+                    document.getElementById("findSidenav").style.height = "auto";
                 }
             }
     }
 
     function closeFindNav() {
-        document.getElementById("findSidenav").style.width = "0";
-        document.getElementById("find-tab").style.marginLeft = "-3em";
+       // document.getElementById("findSidenav").style.width = "0";
+        document.getElementById("find-tab").style.marginLeft = "0em";
 
     }
 </script>

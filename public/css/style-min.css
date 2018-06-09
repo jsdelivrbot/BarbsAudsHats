@@ -191,17 +191,11 @@ img {
 
 .find-sidenav {
   width: 0;
-  position: fixed;
   z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #fff7fe;
   overflow-x: hidden;
   transition: 0.5s;
-  border: 5px rgba(156, 4, 136, 0.05) dotted;
-  border-top-left-radius: 3em;
-  margin-top: 12em;
-  border-bottom-left-radius: 3em; }
+  display: none;
+  height: 0; }
 
 .find-sidenav a {
   padding: 8px 8px 8px 32px;
@@ -264,17 +258,11 @@ img {
 
 .contact-sidenav {
   width: 0;
-  position: fixed;
   z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #fff7fe;
   overflow-x: hidden;
   transition: 0.5s;
-  border: 5px rgba(156, 4, 136, 0.05) dotted;
-  border-top-right-radius: 3em;
-  margin-top: 15em;
-  border-bottom-right-radius: 3em; }
+  display: none;
+  height: 0; }
 
 .contact-sidenav a {
   padding: 8px 8px 8px 32px;
