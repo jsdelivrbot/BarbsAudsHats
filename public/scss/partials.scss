@@ -10,6 +10,7 @@ cursive;
 .navbar-helper {
     height: 1px;
     display: contents;
+    height: auto;
 }
 
 .navbar-header-helper {
@@ -112,8 +113,8 @@ cursive;
 
 .find-sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: auto;
+    right: auto;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -178,6 +179,20 @@ cursive;
     height: 0;
 }
 
+.word-wrapping {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .contact-sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -193,23 +208,22 @@ cursive;
 
 .contact-sidenav .closebtn {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: auto;
+    right: auto;
     font-size: 36px;
     margin-left: 50px;
 }
-
-
 /***************          Footer                     ***************/
 
 .footer-helper {
     padding-right: 0px !important;
     padding-left: 0px !important;
-    background-color: rgba(156, 4, 136, 0.10) !important;
+    background-color: rgba(156, 4, 136, 0.01) !important;
     margin-top: -0.2em;
     min-height: 2em;
-    border-top-right-radius: 0em !important;
-    border-top-left-radius: 0em !important;
-    border-bottom-right-radius: 3em;
     border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    border-bottom: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-left: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-right: 5px rgba(156, 4, 136, 0.05) dotted;
 }

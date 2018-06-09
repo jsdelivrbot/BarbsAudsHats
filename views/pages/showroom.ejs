@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="main-container">
+                <div class=<%=dynamic_content_width %>>
+                    <div class="jumbotron">
+                        <h1>Showroom</h1>
+                        <p>Our showroom is located in Waterloo and open by appointment only. If you would like to view some of our hats, arrange for a hat altered or buy/rent a hat-collection
+                          please either email or phone us to make an appointment. We are available most days and can usually accomodate any time or day that suits you.
+                        </p>
+                        <a name="find"></a>
+<div id="findSidenav" class="animated">
+    <div id="" class="">
+        <!-- <span style="cursor:pointer" class="find-text glyphicon glyphicon-map-marker" onclick="openFindNav()">
+            Find Us</span> -->
+    </div>
+    <div class="jumbotron">
+        <h2 class="container-title">Showroom Address</h2>
+        <div class="contact-width contact-float-left">
+            <div>
+                <p>634a Wakefield Road</p>
+                <p>Waterloo</p>
+                <p>Huddersfield</p>
+                <p>HD5 0PZ</p>
+            </div>
+        </div>
+        <div class="contact-width contact-float-right">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openFindNav() {
+        if($(window).width() < 1000){
+            if (document.getElementById("findSidenav").style.display != "" &&
+            document.getElementById("findSidenav").style.display != "none"    ) {
+                document.getElementById("findSidenav").style.display = "none";
+                } else {
+                    document.getElementById("findSidenav").style.display = "inline-block";
+                    document.getElementById("findSidenav").style.height = "auto";
+
+                }
+            } else {
+                if (document.getElementById("findSidenav").clientWidth != 0) {
+                    closeFindNav();
+                } else {
+                    document.getElementById("findSidenav").style.width = "auto";
+                    document.getElementById("findSidenav").style.display = "block";
+                    document.getElementById("findSidenav").style.height = "auto";
+                }
+            }
+    }
+
+    function closeFindNav() {
+       // document.getElementById("findSidenav").style.width = "0";
+        document.getElementById("find-tab").style.marginLeft = "0em";
+
+    }
+</script>
+<script>
+    function initMap() {
+        var uluru = { lat: 53.644778, lng: -1.737702 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29gE73HoTMA_CPaydxzNLY_uJ7I1QoMU&callback=initMap">
+</script>
+
+                        <%if (loggedIn === true) { %>
+                            <div class="">
+                                <div class="create-new" id="update">
+                                    <h3 class="pull-left">Create new</h3>
+                                    <form ref='uploadForm' id='uploadForm' action="/showroom" method="post" encType="multipart/form-data">
+                                        <input type="text" name="code" class="hat-details-admin" value=<%=lastCode%> required>
+                                        <input type="number" step="any" name="price" class="hat-details-admin" placeholder="Price" required/>
+                                        <input type="file" name="upload" class="hat-upload-admin" placeholder="Image" required/>
+                                        <button type="submit" class="btn btn-warning btn-md ">Create</button>
+                                    </form>
+                                </div>
+
+                                <br>
+                                <% } %>
+                                    <div class="content-holder">
+                                        <div class="hat-collection image-holder">
+                                            <ul>
+                                                <%fascinators.forEach(function(fascinator){%>
+                                                    <div class="hat">
+                                                        <div class="hat-details">
+                                                            <!-- <li class="hat-info-<%=fascinator.code%>">
+                                                                <%=fascinator.code%>
+                                                                    <br> £
+                                                                    <%=fascinator.price%>
+                                                            </li> -->
+                                                            <a data-lity href="/images/fascinators/<%=fascinator.image%>">
+                                                                <img id="hat-image-<%=fascinator.code%>" alt="Barbs and Auds" src="/images/fascinators/<%=fascinator.image%>">
+                                                            </a>
+                                                        </div>
+                                                        <%if (loggedIn === true) { %>
+                                                            <form action="/fascinators_update" method="post" encType="multipart/form-data">
+                                                                <div id="update">
+                                                                    <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
+                                                                    <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
+                                                                    <input type="number" step="any" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
+                                                                    <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
+                                                                    <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
+                                                                    <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
+                                                                </div>
+                                                            </form>
+                                                            <% } %>
+                                                    </div>
+                                                    <%})%>
+
+                                            </ul>
+                                        </div>
+                                        <%if (loggedIn === true) { %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <% include ../partials/contact %>
+                            <% include ../partials/find %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
+<script>
+    $(document).on('lity:ready', function(e, lightbox) {
+      console.log(lightbox)
+        lightbox.find('img').panzoom();
+    });
+    
+    </script>

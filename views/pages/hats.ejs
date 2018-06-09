@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="main-container">
+                <div class=<%=dynamic_content_width %>>
+                    <div class="jumbotron">
+                        <h1>Hats</h1>
+                        <p>Our hats are designed to the highest quality, with you in mind. We aim to offer you our years
+                            of expertise, talent and experience to create a unique and beautiful hat to make you stand
+                            head and sholders above the rest!
+                        </p>
+
+                        <%if (loggedIn === true) { %>
+                            <div class="">
+                                <div class="create-new" id="update">
+                                    <h3 class="pull-left">Create new</h3>
+                                    <form ref='uploadForm' id='uploadForm' action="/hats" method="post" encType="multipart/form-data">
+                                        <input type="text" name="code" class="hat-details-admin" value=<%=lastCode%> required>
+                                        <input type="number" step="any" name="price" class="hat-details-admin" placeholder="Price" required/>
+                                        <input type="file" name="upload" class="hat-upload-admin" placeholder="Image" required/>
+                                        <button type="submit" class="btn btn-warning btn-md ">Create</button>
+                                    </form>
+                                </div>
+
+                                <br>
+                                <% } %>
+                                    <div class="content-holder">
+                                        <div class="hat-collection image-holder">
+                                            <ul>
+                                                <%fascinators.forEach(function(fascinator){%>
+                                                    <div class="hat">
+                                                        <div class="hat-details">
+                                                            <!-- <li class="hat-info-<%=fascinator.code%>">
+                                                                <%=fascinator.code%>
+                                                                    <br> £
+                                                                    <%=fascinator.price%>
+                                                            </li> -->
+                                                            <a data-lity href="/images/fascinators/<%=fascinator.image%>">
+                                                                <img id="hat-image-<%=fascinator.code%>" alt="Barbs and Auds" src="/images/fascinators/<%=fascinator.image%>">
+                                                            </a>
+                                                        </div>
+                                                        <%if (loggedIn === true) { %>
+                                                            <form action="/fascinators_update" method="post" encType="multipart/form-data">
+                                                                <div id="update">
+                                                                    <input style="display:none" type="text" name="id" class="hat-details-admin" value="<%=fascinator._id%>" />
+                                                                    <input type="text" name="code" class="hat-details-admin" value="<%=fascinator.code%>" />
+                                                                    <input type="number" step="any" name="price" class="hat-details-admin" value="<%=fascinator.price%>" />
+                                                                    <input type="text" name="image" class="hat-details-admin" value="<%=fascinator.image%>" />
+                                                                    <button name="action" value="update" type="submit" class="btn btn-warning btn-sm">Update</button>
+                                                                    <button name="action" value="delete" type="submit" class="btn btn-warning btn-sm">Delete</button>
+                                                                </div>
+                                                            </form>
+                                                            <% } %>
+                                                    </div>
+                                                    <%})%>
+
+                                            </ul>
+                                        </div>
+                                        <%if (loggedIn === true) { %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <% include ../partials/contact %>
+                            <% include ../partials/find %>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
+<script>
+    $(document).on('lity:ready', function(e, lightbox) {
+      console.log(lightbox)
+        lightbox.find('img').panzoom();
+    });
+    
+    </script>

@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title>Barbs&Auds | Hats&Facinators</title>
+<title>Barbs & Auds | Hats & Fascinators</title>
 <!-- CSS (load bootstrap from a CDN) -->
 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width" />
@@ -37,3 +37,41 @@
 
   gtag('config', 'UA-113167798-1');
 </script>
+
+<!-- Lity lightbox-->
+<link href="lity-2.3.1/dist/lity.min.css " rel="stylesheet">
+<script src="lity-2.3.1/vendor/jquery.js"></script>
+<script src="lity-2.3.1/dist/lity.js"></script>
+
+<!--jQuery zoom-->
+<script src="jquery.panzoom-3.2.2/dist/jquery.panzoom.min.js"></script>
+
+<!--Social -->
+<link href="bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet">
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<script>
+$(document).on('lity:ready', function(event, lightbox) {
+
+    $(document).find('.lity-wrap').after('<div class="buttons zoom-controls">  <button class="zoom-in btn btn-info zoom-button-right">Zoom In</button> <button class="zoom-out btn btn-info zoom-button-left">Zoom Out</button> <input type="range" class="zoom-range"> <button class="reset">Reset</button> </div> ');
+    
+    var $section = $(this).find('.lity-content img');
+    $(this).find('.lity-content img').panzoom();
+var currentZoom = 1;
+    $('.zoom-in').click(function(){
+        $('.lity-content img').animate({ 'zoom': currentZoom += .5 }, 400);
+        $('.lity-content img').css("-moz-transform", "scale(1.75)");  
+    });
+    $('.zoom-out').click(function(){
+        $('.lity-content img').animate({ 'zoom': currentZoom -= .5 }, 400);
+        $('.lity-content img').css("-moz-transform", "scale(1)");  
+    });
+});
+    
+</script>
+
+
+  

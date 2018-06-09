@@ -4,20 +4,18 @@
                 <!-- <span style="cursor:pointer" class="contact-text glyphicon glyphicon-phone" onclick="openContactNav()">
                         Contact</span> -->
         </div>
-        <a href="javascript:void(0)" class="closebtn" onclick="openContactNav()">&times;</a>
-<div class="jumbotron">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeContactNav()">&times;</a>
+<div class="animated">
     <h2 class="container-title">Contact Info</h2>
-    <div class="contact-width contact-float-left">
+    <div>
 
         <div >
-            <span class="glyphicon glyphicon-envelope"></span><p>barbarabrown50@hotmail.com</p>
-            <span class="glyphicon glyphicon-phone"></span><p>07508 534518</p>
-        </div>
-    </div>
-
-    <div class="contact-width contact-float-right">
-        <div>
-                <span><button onclick="location.href='https://www.facebook.com/madhatter634/';" class="btn btn-social-icon btn-facebook" style="width:10em">Facebook</button></span><br><br>
+                <a class="word-wrapping" href="mailto:barbarabrown50@hotmail.com?subject=Hat/Fascinator Enquiry &body=Hi Barbs and Auds!%20%20"><span class="glyphicon glyphicon-envelope">barbarabrown50@hotmail.com</span></a>
+                <a href="tel:+447508 534518"><span class="glyphicon glyphicon-phone">07508 534518</span></a>
+            <span><button onclick="window.open(
+                        'https://www.facebook.com/madhatter634/',
+                        '_blank' 
+                      );" target='_blank'; class="btn btn-social-icon btn-facebook" style="width:10em"><i class="fas fa-user">Facebook</i></button></span><br><br>
         </div>
     </div>
 </div>
@@ -46,7 +44,7 @@
         
         function closeContactNav() {
             //document.getElementById("contactSidenav").style.width = "0";
-            document.getElementById("contact-tab").style.marginLeft = "0em";
+            document.getElementById("contactSidenav").style.display = "none";
 
         }
 </script>

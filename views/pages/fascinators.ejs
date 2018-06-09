@@ -16,8 +16,8 @@
                 <div class=<%=dynamic_content_width %>>
                     <div class="jumbotron">
                         <h1>Fascinators</h1>
-                        <p>Our facinators are designed to the highest quality, with you in mind. We aim to offer you our years
-                            of expertise, talent and experience to create a unique and beautiful facinator to make you stand
+                        <p>Our fascinators are designed to the highest quality, with you in mind. We aim to offer you our years
+                            of expertise, talent and experience to create a unique and beautiful fascinator to make you stand
                             head and sholders above the rest!
                         </p>
 
@@ -41,12 +41,14 @@
                                                 <%fascinators.forEach(function(fascinator){%>
                                                     <div class="hat">
                                                         <div class="hat-details">
-                                                            <li class="hat-info-<%=fascinator.code%>">
+                                                            <!-- <li class="hat-info-<%=fascinator.code%>">
                                                                 <%=fascinator.code%>
                                                                     <br> £
                                                                     <%=fascinator.price%>
-                                                            </li>
-                                                            <img id="hat-image-<%=fascinator.code%>" alt="Barbs and Auds" src="/images/facinators/<%=fascinator.image%>">
+                                                            </li> -->
+                                                            <a data-lity href="/images/fascinators/<%=fascinator.image%>">
+                                                                <img  id="hat-image-<%=fascinator.code%>" alt="Barbs and Auds" src="/images/fascinators/<%=fascinator.image%>">
+                                                            </a>
                                                         </div>
                                                         <%if (loggedIn === true) { %>
                                                             <form action="/fascinators_update" method="post" encType="multipart/form-data">
@@ -69,10 +71,11 @@
                                     </div>
                                     <% } %>
                             </div>
+                            <% include ../partials/contact %>
+                            <% include ../partials/find %>
                     </div>
                 </div>
-                <% include ../partials/contact %>
-                <% include ../partials/find %>
+
             </div>
         </div>
     </main>
@@ -83,30 +86,3 @@
 </body>
 
 </html>
-<script>
-    $(function(){
-        $('img[id^=hat-image-]').mouseenter(function(){
-            var info = $(this).prev()[0].classList[0];
-            var image = $(this)[0].id;
-            console.log(image)
-            $('img:not(#' + image + ')').stop().animate({
-                "opacity": .3
-            }), 200;
-
-            // $('body > :not(:has(#'+image+'))').fadeTo("slow" , 0.5)
-            // $('div > :not(:has(#'+image+'))').fadeTo("slow" , 0.5)
-            $("." + info).css('display','inline');
-        })
-        $('img[id^=hat-image-]').mouseleave(function(){
-            var info = $(this).prev()[0].classList[0];
-            var image = $(this)[0].id;
-            console.log('Test');
-            $('img:not(#' + image + ')').stop().animate({
-                "opacity": 1
-            }), 200;
-            $("." + info).css('display','none');
-        })
-    });
-
-
-</script>

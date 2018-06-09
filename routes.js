@@ -63,6 +63,49 @@ var loggedIn = false;
             HatContoller.hat_update_post(req, res);
         });
     // =====================================
+    // HATS PAGE        ====================
+    // =====================================
+    app.get('/hats', function(req, res) {
+        dynamic_content_width = "col-cust-12"
+        
+        if (req.user)  loggedIn = req.isAuthenticated(), 
+                       dynamic_content_width = "col-cust-12";
+        else  loggedIn = false;
+        HatContoller.hat_read_get(req, res, loggedIn, dynamic_content_width);
+
+    });
+    app.post('/hats', function(req, res) {
+        if (!req.files.upload)
+        return res.status(400).send('No files were uploaded.');
+        HatContoller.hat_create_post(req, res);
+    });
+
+    app.post('/hats_update', function(req, res) {
+            HatContoller.hat_update_post(req, res);
+        });
+
+    // =====================================
+    // HATS PAGE        ====================
+    // =====================================
+    app.get('/showroom', function(req, res) {
+        dynamic_content_width = "col-cust-12"
+        
+        if (req.user)  loggedIn = req.isAuthenticated(), 
+                       dynamic_content_width = "col-cust-12";
+        else  loggedIn = false;
+        HatContoller.hat_read_get(req, res, loggedIn, dynamic_content_width);
+
+    });
+    app.post('/showroom', function(req, res) {
+        if (!req.files.upload)
+        return res.status(400).send('No files were uploaded.');
+        HatContoller.hat_create_post(req, res);
+    });
+
+    app.post('/showroom_update', function(req, res) {
+            HatContoller.hat_update_post(req, res);
+        });
+    // =====================================
     // LOGIN PAGE ==========================
     // =====================================
     app.get('/login', function(req, res) {

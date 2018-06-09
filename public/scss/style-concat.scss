@@ -1,4 +1,9 @@
 /***************          Fascinators                 ***************/
+.lity-active,
+.lity-active body {
+    overflow: hidden;
+}
+
 .hat-collection {
   text-align: center;
 }
@@ -134,6 +139,7 @@ cursive;
 .navbar-helper {
     height: 1px;
     display: contents;
+    height: auto;
 }
 
 .navbar-header-helper {
@@ -236,8 +242,8 @@ cursive;
 
 .find-sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: auto;
+    right: auto;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -302,6 +308,20 @@ cursive;
     height: 0;
 }
 
+.word-wrapping {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 .contact-sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -317,25 +337,24 @@ cursive;
 
 .contact-sidenav .closebtn {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: auto;
+    right: auto;
     font-size: 36px;
     margin-left: 50px;
 }
-
-
 /***************          Footer                     ***************/
 
 .footer-helper {
     padding-right: 0px !important;
     padding-left: 0px !important;
-    background-color: rgba(156, 4, 136, 0.10) !important;
+    background-color: rgba(156, 4, 136, 0.01) !important;
     margin-top: -0.2em;
     min-height: 2em;
-    border-top-right-radius: 0em !important;
-    border-top-left-radius: 0em !important;
-    border-bottom-right-radius: 3em;
     border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    border-bottom: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-left: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-right: 5px rgba(156, 4, 136, 0.05) dotted;
 }
 /***************          Login              ***************/
 
@@ -404,12 +423,21 @@ cursive;
 }
 /***************          Elements                     ***************/
 
+html {
+    margin-top: 3em;
+}
+
+body {
+    background-image: url("/leaves-pattern/leaves-pattern.png");
+    background-color: #cccccc;
+ }
+
 body {
     padding-top: 0px;
 }
 
 header {
-    padding-bottom: 1em;
+    padding-bottom: 0.7em;
 }
 
 ul {
@@ -434,7 +462,7 @@ main,
 nav,
 section,
 summary {
-    display: inline !important;
+    display: block !important;
 }
 
 // div {
@@ -485,7 +513,7 @@ summary {
 
 div.jumbotron {
     padding: 20px 20px 20px 20px !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
+    //background-color: rgba(255, 255, 255, 0.05) !important;
     border-top: 5px rgba(255, 255, 255, 0.05) solid;
     border-radius: 1px;
     text-align: center;
@@ -539,8 +567,12 @@ div.jumbotron {
 
 .main-container {
     display: inline-block;
+    width: 100%;
     border-style: dotted;
-    border-color: rgba(156, 4, 136, 0.10) !important;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-width: 5px;
+    border-color: rgba(156, 4, 136, 0.05) !important;
     margin-top: -1.5em;
     background-color: rgba(156, 4, 136, 0.01);
 }
@@ -550,14 +582,13 @@ div.jumbotron {
     margin: 0px auto 0px auto;
 }
 
-.container-fluid {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
+.container-fluid-custom {
     border-top-left-radius: 3em;
     border-top-right-radius: 3em;
-    border-top: 5px;
-    background-color: rgba(156, 4, 136, 0.10) !important;
-    border-top: 5px rgba(156, 4, 136, 0.05) solid;
+    border-top: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-left: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-right: 5px rgba(156, 4, 136, 0.05) dotted;
+    background-color: rgba(156, 4, 136, 0.01);
     margin-top: -1.5em;
 }
 
@@ -576,8 +607,33 @@ div.jumbotron {
     background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
+.margin-auto{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 /***************          Animation                     ***************/
+
+.zoom-controls{
+    height:50px;
+    position:absolute;
+    width:50px;
+    left:50%;
+    bottom:0;
+    margin-left:-25px;
+    z-index: 9991;
+}
+.zoom-button-left {
+    z-index:9992;
+    right: -20em;
+    position: absolute;
+}
+.zoom-button-right {
+    z-index:9992;
+    left: -20em;
+    position: absolute;
+}
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -636,6 +692,10 @@ div.jumbotron {
 
 #output.alert-danger {
     background: rgb(228, 105, 105);
+}
+
+.about-image {
+    border-radius: 2em;
 }
 @media (max-width: 400px) {
     .navbar-brand-helper {
@@ -709,9 +769,6 @@ div.jumbotron {
         margin-top: -23px;
         background-color: rgba(156, 4, 136, 0.01);
     }
-    .image-container {
-        width: 32%;
-    }
     .text-image-helper {
         font: 400 2em 'Oleo Script', Helvetica, sans-serif;
         color: #ffffff;
@@ -744,6 +801,14 @@ div.jumbotron {
         width: 100%;
         text-align: center;
     }
+    .image-container {
+        width: 70%;
+        padding: 5px;
+        display: inline-flex;
+        position: relative;
+        text-align: center;
+        transition: all 0.3s ease-out;
+      }
     .image-container:hover img {
         transform: scale(1.1, 1.1);
         transition: all 0.3s ease-out;
@@ -751,7 +816,8 @@ div.jumbotron {
     }
     .nav-links {
         text-align: center;
-        margin-top: 5px;
+        margin-top: 1em;
+        margin-bottom: 0px;
     }
     .nav-links-width-helper {
         width: 100%;
@@ -840,9 +906,6 @@ div.jumbotron {
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
-    }
-    header {
-        padding-bottom: 50px;
     }
     .sidenav {
         margin-top: 0px;

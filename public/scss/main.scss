@@ -1,11 +1,20 @@
 /***************          Elements                     ***************/
 
+html {
+    margin-top: 3em;
+}
+
+body {
+    background-image: url("/leaves-pattern/leaves-pattern.png");
+    background-color: #cccccc;
+ }
+
 body {
     padding-top: 0px;
 }
 
 header {
-    padding-bottom: 1em;
+    padding-bottom: 0.7em;
 }
 
 ul {
@@ -30,7 +39,7 @@ main,
 nav,
 section,
 summary {
-    display: inline !important;
+    display: block !important;
 }
 
 // div {
@@ -81,7 +90,7 @@ summary {
 
 div.jumbotron {
     padding: 20px 20px 20px 20px !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
+    //background-color: rgba(255, 255, 255, 0.05) !important;
     border-top: 5px rgba(255, 255, 255, 0.05) solid;
     border-radius: 1px;
     text-align: center;
@@ -135,8 +144,12 @@ div.jumbotron {
 
 .main-container {
     display: inline-block;
+    width: 100%;
     border-style: dotted;
-    border-color: rgba(156, 4, 136, 0.10) !important;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-width: 5px;
+    border-color: rgba(156, 4, 136, 0.05) !important;
     margin-top: -1.5em;
     background-color: rgba(156, 4, 136, 0.01);
 }
@@ -146,14 +159,13 @@ div.jumbotron {
     margin: 0px auto 0px auto;
 }
 
-.container-fluid {
-    padding-right: 0px !important;
-    padding-left: 0px !important;
+.container-fluid-custom {
     border-top-left-radius: 3em;
     border-top-right-radius: 3em;
-    border-top: 5px;
-    background-color: rgba(156, 4, 136, 0.10) !important;
-    border-top: 5px rgba(156, 4, 136, 0.05) solid;
+    border-top: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-left: 5px rgba(156, 4, 136, 0.05) dotted;
+    border-right: 5px rgba(156, 4, 136, 0.05) dotted;
+    background-color: rgba(156, 4, 136, 0.01);
     margin-top: -1.5em;
 }
 
@@ -172,8 +184,33 @@ div.jumbotron {
     background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
+.margin-auto{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 /***************          Animation                     ***************/
+
+.zoom-controls{
+    height:50px;
+    position:absolute;
+    width:50px;
+    left:50%;
+    bottom:0;
+    margin-left:-25px;
+    z-index: 9991;
+}
+.zoom-button-left {
+    z-index:9992;
+    right: -20em;
+    position: absolute;
+}
+.zoom-button-right {
+    z-index:9992;
+    left: -20em;
+    position: absolute;
+}
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -232,4 +269,8 @@ div.jumbotron {
 
 #output.alert-danger {
     background: rgb(228, 105, 105);
+}
+
+.about-image {
+    border-radius: 2em;
 }

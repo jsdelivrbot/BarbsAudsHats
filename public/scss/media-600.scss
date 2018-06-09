@@ -10,9 +10,6 @@
         margin-top: -23px;
         background-color: rgba(156, 4, 136, 0.01);
     }
-    .image-container {
-        width: 32%;
-    }
     .text-image-helper {
         font: 400 2em 'Oleo Script', Helvetica, sans-serif;
         color: #ffffff;
@@ -45,6 +42,14 @@
         width: 100%;
         text-align: center;
     }
+    .image-container {
+        width: 70%;
+        padding: 5px;
+        display: inline-flex;
+        position: relative;
+        text-align: center;
+        transition: all 0.3s ease-out;
+      }
     .image-container:hover img {
         transform: scale(1.1, 1.1);
         transition: all 0.3s ease-out;
@@ -52,7 +57,8 @@
     }
     .nav-links {
         text-align: center;
-        margin-top: 5px;
+        margin-top: 1em;
+        margin-bottom: 0px;
     }
     .nav-links-width-helper {
         width: 100%;
