@@ -28,7 +28,7 @@ const reload = require('reload');
 var compressor = require('node-minify');
 
 require('./config/passport')(passport);
-
+require('dotenv').config();
 aws.config.region = 'eu-west-2';
 
 concat(['./public/scss/fascinators.scss', './public/scss/index.scss', './public/scss/partials.scss', './public/scss/login.scss',
