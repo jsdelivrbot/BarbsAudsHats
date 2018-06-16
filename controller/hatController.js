@@ -18,7 +18,9 @@ exports.hat_create_post = function(req, res){
       ContentType: fileType,
       ACL: 'public-read'
     };
-  
+    console.log(fileName);
+    console.log(fileType);
+    console.log(s3Params);
     s3.getSignedUrl('putObject', s3Params, (err, data) => {
       if(err){
         console.log(err);
