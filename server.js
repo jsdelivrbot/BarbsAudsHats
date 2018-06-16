@@ -78,4 +78,5 @@ reload(app)
 server.listen(process.env.PORT ||3000, '0.0.0.0',function () {
   console.log(mongoose.connection.readyState);
   console.log('Example app listening on port 3000!')
+  console.log(process.env.PORT);
 })
