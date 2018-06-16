@@ -10,12 +10,15 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const cookieParser = require('cookie-parser');
 
-const http = require('http')
-const path = require('path')
+const http = require('http');
+const path = require('path');
 const passport = require('passport');  
 const LocalStrategy = require('passport-local').Strategy; 
 const session = require('express-session');
 const flash    = require('connect-flash');
+
+const aws = require('aws-sdk');
+const S3_BUCKET = process.env.S3_BUCKET;
 
 const fileUpload = require('express-fileupload');
 const util = require('util');
@@ -25,6 +28,8 @@ const reload = require('reload');
 var compressor = require('node-minify');
 
 require('./config/passport')(passport);
+
+aws.config.region = 'eu-west-2';
 
 concat(['./public/scss/fascinators.scss', './public/scss/index.scss', './public/scss/partials.scss', './public/scss/login.scss',
       './public/scss/main.scss', './public/scss/media-400.scss', './public/scss/media-600.scss', 

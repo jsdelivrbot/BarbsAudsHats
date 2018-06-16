@@ -1,15 +1,41 @@
 'use strict'
 const Hat = require('../models/hat');
 const Fascinator = require('../models/fascinator');
+const aws = require('aws-sdk');
+const S3_BUCKET = process.env.S3_BUCKET;
 
 
 exports.hat_create_post = function(req, res){
     let imageToSave = req.files.upload;
 
-    imageToSave.mv('./public/images/fascinators/'+ imageToSave.name, function(err) {
-        if (err)
-          return res.status(500).send(err);
-      });
+    const s3 = new aws.S3();
+    const fileName = req.query['file-name'];
+    const fileType = req.query['file-type'];
+    const s3Params = {
+      Bucket: S3_BUCKET,
+      Key: fileName,
+      Expires: 60,
+      ContentType: fileType,
+      ACL: 'public-read'
+    };
+  
+    s3.getSignedUrl('putObject', s3Params, (err, data) => {
+      if(err){
+        console.log(err);
+        return res.end();
+      }
+      const returnData = {
+        signedRequest: data,
+        url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+      };
+      res.write(JSON.stringify(returnData));
+      res.end();
+    });
+
+    // imageToSave.mv('./public/images/fascinators/'+ imageToSave.name, function(err) {
+    //     if (err)
+    //       return res.status(500).send(err);
+    //   });
 
       var fascinator = new Hat({
         code: req.body.code,
