@@ -29,7 +29,7 @@ console.log("ENV:" + process.env.S3_BUCKET);
 aws.config.update({region: 'us-west-2'});
 
 
-var credentials = new aws.SharedIniFileCredentials({profile: 'default'});
+var credentials = new aws.Credentials(process.env.S3_KEY, S3_SECRET);
 aws.config.credentials = credentials;
 // Create S3 service object
 const s3 = new aws.S3({apiVersion: '2006-03-01'});
