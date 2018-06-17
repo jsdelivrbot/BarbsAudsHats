@@ -11,25 +11,37 @@ const request = require('request');
 const cookieParser = require('cookie-parser');
 
 const http = require('http');
-const path = require('path');
 const passport = require('passport');  
-const LocalStrategy = require('passport-local').Strategy; 
 const session = require('express-session');
 const flash    = require('connect-flash');
 
 const aws = require('aws-sdk');
-const S3_BUCKET = process.env.S3_BUCKET;
 
 const fileUpload = require('express-fileupload');
 const util = require('util');
 const concat = require('concat');
 var fs = require('file-system');
 const reload = require('reload');
-var compressor = require('node-minify');
 
 require('./config/passport')(passport);
 require('dotenv').config();
-aws.config.region = 'eu-west-2';
+console.log("ENV:" + process.env.S3_BUCKET);
+aws.config.update({region: 'us-west-2'});
+
+
+var credentials = new aws.SharedIniFileCredentials({profile: 'default'});
+aws.config.credentials = credentials;
+// Create S3 service object
+const s3 = new aws.S3({apiVersion: '2006-03-01'});
+                    
+// Call S3 to list current buckets
+s3.listBuckets(function(err, data) {
+   if (err) {
+      console.log("Error", err);
+   } else {
+      console.log("Bucket List", data.Buckets);
+   }
+});
 
 concat(['./public/scss/fascinators.scss', './public/scss/index.scss', './public/scss/partials.scss', './public/scss/login.scss',
       './public/scss/main.scss', './public/scss/media-400.scss', './public/scss/media-600.scss', 
@@ -41,14 +53,13 @@ sass.render({
   file: './public/scss/style-concat.scss',
   outFile: './public/css/style-min.css'
 }, function(err, result) {
-  console.log(result)
   fs.writeFile('./public/css/style-min.css', result.css);
 });
 
-mongoose.connect('mongodb://alex:12frogs@ds245250.mlab.com:45250/heroku_0sl6xq74', function(err, db){
+mongoose.connect(process.env.MONGO_DB, function(err, db){
   // console.log(err);
   // console.log(db);
-}); // connect to our database
+}); 
 
 app.use(fileUpload());
 

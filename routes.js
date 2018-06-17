@@ -1,6 +1,5 @@
 module.exports = function(app, passport, fileUpload, util, path) {
 
-
 const HatContoller          = require('./controller/hatController');
 const IndexController     = require('./controller/indexController')
 var loggedIn = false;
@@ -85,7 +84,7 @@ var loggedIn = false;
         });
 
     // =====================================
-    // HATS PAGE        ====================
+    // SHOWROOM PAGE    ====================
     // =====================================
     app.get('/showroom', function(req, res) {
         dynamic_content_width = "col-cust-12"
@@ -105,6 +104,7 @@ var loggedIn = false;
     app.post('/showroom_update', function(req, res) {
             HatContoller.hat_update_post(req, res);
         });
+
     // =====================================
     // LOGIN PAGE ==========================
     // =====================================
