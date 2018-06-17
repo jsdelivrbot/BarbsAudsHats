@@ -6,7 +6,8 @@ const S3_BUCKET = process.env.S3_BUCKET;
 const fs = require('file-system');
 const path = require('path');
 
-exports.hat_create_post = function (req, res) {
+exports.hat_create_post = function (req, res, aws) {
+    console.log(aws);
     let s3 = new aws.S3({ apiVersion: '2006-03-01' });
     let uploadParams = { Bucket: S3_BUCKET, Key: '', Body: '', ACL: 'public-read' };
     let imageToSave = req.files.upload;

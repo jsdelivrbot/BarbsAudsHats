@@ -1,4 +1,4 @@
-module.exports = function(app, passport, fileUpload, util, path) {
+module.exports = function(app, passport, fileUpload, util, path, aws) {
 
 const HatContoller          = require('./controller/hatController');
 const IndexController     = require('./controller/indexController')
@@ -52,10 +52,10 @@ var loggedIn = false;
         HatContoller.hat_read_get(req, res, loggedIn, dynamic_content_width);
 
     });
-    app.post('/fascinators', function(req, res) {
+    app.post('/fascinators', function(req, res, aws) {
         if (!req.files.upload)
         return res.status(400).send('No files were uploaded.');
-        HatContoller.hat_create_post(req, res);
+        HatContoller.hat_create_post(req, res, aws);
     });
 
     app.post('/fascinators_update', function(req, res) {
@@ -161,7 +161,19 @@ var loggedIn = false;
             loggedIn: loggedIn,
         });
     });
-
+    // =====================================
+    // SITEMAP =============================
+    // =====================================
+    app.get('/sitemap', function(req, res) {
+        const fs = require('file-system');
+        fs.readFile('sitemap.xml', 'utf8', function(err, data) {
+            if (!err && process.env.ENVIRONMENT === 'DEV') {
+                console.log(data);
+            }
+            res.type('application/xml');
+            res.send(data);
+        });
+    });
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 

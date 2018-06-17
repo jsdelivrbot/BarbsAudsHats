@@ -49,8 +49,11 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "scss-concat": "^0.3.7",
+    "sitemap-generator": "^8.2.2",
     "social-button": "^0.2.0",
-    "uglifycss": "0.0.28"
+    "uglifycss": "0.0.28",
+    "xml": "^1.0.1",
+    "xml2json": "^0.11.2"
   },
   "devDependencies": {
     "logger": "0.0.1",
