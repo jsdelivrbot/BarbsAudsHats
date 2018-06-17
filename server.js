@@ -28,7 +28,8 @@ require('dotenv').config();
 console.log("ENV:" + process.env.S3_BUCKET);
 aws.config.update({region: 'us-west-2'});
 
-
+console.log(process.env.S3_SECRET);
+console.log(process.env.S3_KEY);
 var credentials = new aws.Credentials(process.env.S3_KEY, process.env.S3_SECRET);
 aws.config.credentials = credentials;
 // Create S3 service object
