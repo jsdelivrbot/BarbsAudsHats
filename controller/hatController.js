@@ -15,7 +15,7 @@ exports.hat_create_post = function (req, res) {
     let fascinator = new Hat({
         code: req.body.code,
         price: req.body.price,
-        image: data.Location
+        image: ''
     });
 
     imageToSave.mv('./public/images/fascinators/' + imageToSave.name, function (err) {
@@ -36,6 +36,7 @@ exports.hat_create_post = function (req, res) {
         } if (data) {
             //Success then save to DB
             console.log("Upload Success", data.Location);
+            fascinator.image = data.Location;
             fascinator.save(function (err) {
                 if (err) console.log("Problems saving :( - " + err)
                 else res.redirect(req.get('referer'));;
