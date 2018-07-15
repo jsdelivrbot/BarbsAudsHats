@@ -18,17 +18,19 @@
                     <li>|</li>
                     <li class="nav-link"><a href="/about"><span class="glyphicon glyphicon glyphicon-user">About</span></a></li>
                     <li>|</li>
-                    <li class="nav-link">
-                        <span style="cursor:pointer" class="glyphicon glyphicon-phone" onclick="openContactNav()">
-                           <a href="#contact"> Contact</a></span>
+                    <li id="contact" class="nav-link">
+                        <span style="cursor:pointer" class="glyphicon glyphicon-phone">
+                           <a href="javascript:;"> Contact</a></span>
                     </li>
                     <li>|</li>
-                    <li class="nav-link">
-                            <span style="cursor:pointer" class="glyphicon glyphicon-map-marker" onclick="openFindNav()">
-                                    <a href="#find"> Find</a></span>
+                    <li id="find" class="nav-link">
+                            <span style="cursor:pointer" class="glyphicon glyphicon-map-marker">
+                                    <a href="javascript:;"> Find</a></span>
                     </li>
 
                 </ul>
             </div>
     </div>
 </nav>
+
+<button onclick="backToTop.topFunction()" id="backToTop" title="Go to top"><span class="glyphicon glyphicon-arrow-up"></span> Back to top</button> 

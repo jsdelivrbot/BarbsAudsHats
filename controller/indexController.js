@@ -2,7 +2,7 @@
 const Content = require('../models/content');
 var loggedIn = false;
 
-exports.index_create_post = function (req, res) {
+exports.index_create_post = function (req, res, displaytext) {
     var index = new Content({
         page: req.body.page,
         content: [{
@@ -21,14 +21,14 @@ exports.index_create_post = function (req, res) {
     });
 }
 
-exports.index_read_get = function (req, res, cpage) {
+exports.index_read_get = function (req, res, cpage, displaytext) {
     Content.findOne({ 'page': cpage }, function (err, results) {
         if (err) throw err;
         if (req.user) loggedIn = true;
         res.render('pages' + cpage, {
             loggedIn:loggedIn,
             cpage: cpage,
-            tagline: "test"//results.content[0]
+            displayText: displaytext
         });
     });
 }

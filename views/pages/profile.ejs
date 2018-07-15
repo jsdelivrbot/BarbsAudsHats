@@ -32,10 +32,100 @@
 
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-align-justify "></span> Properties</h3>
+                <% for(var i=0; i< textOptions.length; i++) {%>
+                        <tr>
+                          <td>
+                            <p id="pageName-<%=textOptions[0].page%>"><%=textOptions[i].page%></p>
+                          </td>
+                          
+                                <% for(var i=0; i< textOptions[0].content.length; i++) {%>
+                                <td>
+                                        <strong id="propTitle"><%=textOptions[i].content[i].type%></strong>:<a id="edit" data-toggle="modal" data-target="#myModal"><%= textOptions[i].content[i].text %></a><br>
+                                </td>
+                                    <% } %>
+                          
+                        </tr>
+                     <% } %>
 
+                     <p id="pageName-new>">New</p>
+                     <strong id="propTitle">New type</strong>:<a id="edit" data-toggle="modal" data-target="#myModal">New text</a><br>
+
+            </div>
+        </div>
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#edit').on('click', function () {
+            $('.modal-title').text("Editing: " + $(this).prev('strong').text());
+            $('#dbID').val($(this).prev('strong').text());
+            $('#pageID').val($('#edit').prev().prev('p').text());
+            $('#inputText').text($(this).text());
+            console.log($(this).prev('p'));
+    })
+});
+</script>
+
+
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+
+                                                            <!-- Modal Header -->
+                                                            <div class="modal-header">
+                                                                    <h4 class="modal-title">Modal Heading</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+
+                                                            <!-- Modal body -->
+                                                            <div class="modal-body">
+                                                                    <div class="">
+                                                                            <div class="create-new" id="update">
+                                                                                    <form action="/content_create" method="post" encType="multipart/form-data">
+                                                                                        <div >
+                                                                                            <input id="dbID" type="text" name="id" class="content-details-admin" required hidden/>
+                                                                                            <p>Page name</p>
+                                                                                            <input id="pageID" type="text" name="pageID" class="content-details-admin"  required/><br>
+                                                                                            <p>Text</p>
+                                                                                            <textarea id="inputText" type="text" cols="40" rows="5" name="text" placeholder="text" class="content-details-admin"
+                                                                                                    required> <%= this.text %></textarea><br>
+
+                                                                                            <button type="submit" name="updateContent" id="updateContent" class="btn btn-warning btn-md ">Update</button>
+                                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                                                                        </div>
+
+                                                                                    </form>
+
+                                                                            </div>
+                                                                    </div>
+                                                                    <script>  
+                                                                    // $(document).ready( function () {
+                                                                    //     $('#updateContent').on('click',function(){
+                                                                    //         console.log($("#uploadForm")[0]);
+                                                                    //         $("#uploadForm").submit();
+                                                                    //     });
+                                                                    //     $('#updateContent2').on('click',function(){
+                                                                    //         console.log($("#uploadForm")[0]);
+                                                                    //         $("#uploadForm").submit();
+                                                                    //     })
+                                                                    // });
+                                                                     
+                                                                    </script>
+                                                                    <!-- Modal footer -->
+                                                                    <div class="modal-footer">
+                                                                    </div>
+
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                    </div>
 </main>
 </body>
 </html>

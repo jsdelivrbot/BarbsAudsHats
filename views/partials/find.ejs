@@ -1,10 +1,9 @@
 <a name="find"></a>
-<div id="findSidenav" class="find-sidenav animated">
+<div id="findContainer" class="find-sidenav-closed animated">
     <div id="find-tab" class="find-tab">
         <!-- <span style="cursor:pointer" class="find-text glyphicon glyphicon-map-marker" onclick="openFindNav()">
             Find Us</span> -->
     </div>
-    <a href="javascript:void(0)" class="closebtn" onclick="closeFindNav()">&times;</a>
     <div class="animated">
         <h2 class="container-title">Showroom Address</h2>
         <div></div>
@@ -22,34 +21,6 @@
         </div>
     </div>
 </div>
-<script>
-    function openFindNav() {
-        if($(window).width() < 1000){
-            if (document.getElementById("findSidenav").style.display != "" &&
-            document.getElementById("findSidenav").style.display != "none"    ) {
-                document.getElementById("findSidenav").style.display = "none";
-                } else {
-                    document.getElementById("findSidenav").style.display = "inline-block";
-                    document.getElementById("findSidenav").style.height = "auto";
-
-                }
-            } else {
-                if (document.getElementById("findSidenav").clientWidth != 0) {
-                    closeFindNav();
-                } else {
-                    document.getElementById("findSidenav").style.width = "auto";
-                    document.getElementById("findSidenav").style.display = "block";
-                    document.getElementById("findSidenav").style.height = "auto";
-                }
-            }
-    }
-
-    function closeFindNav() {
-        document.getElementById("findSidenav").style.display = "none";
-        //document.getElementById("find-tab").style.marginLeft = "0em";
-
-    }
-</script>
 <script>
     function initMap() {
         var uluru = { lat: 53.644778, lng: -1.737702 };

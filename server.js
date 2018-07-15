@@ -75,6 +75,12 @@ generator.on('done', () => {
 });
 generator.start();
 
+//Text content
+//let textService = '';
+ const TextController = require('./controller/textController');
+// TextController.text_find_all_get().then(function(result){
+//   textService = result;
+// });
 
 app.use(express.static('public'));
 app.use(express.static('sitemap.xml'));
@@ -92,7 +98,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-require('./routes.js')(app, passport, fileUpload, util, aws);
+require('./routes.js')(app, passport, fileUpload, util, aws, TextController.text_find_all_get());
 
 server = http.createServer(app)
 

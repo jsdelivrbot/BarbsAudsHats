@@ -46,7 +46,7 @@ exports.hat_create_post = function (req, res, aws) {
     });
 }
 
-exports.hat_read_get = function (req, res, loggedIn, dynamic_content_width) {
+exports.hat_read_get = function (req, res, loggedIn, dynamic_content_width, displaytext) {
     let contentCode;
     let mongooQuery;
     if (req.url === "/hats") {
@@ -72,7 +72,8 @@ exports.hat_read_get = function (req, res, loggedIn, dynamic_content_width) {
             "fascinators": fascinators,
             loggedIn: loggedIn,
             dynamic_width: dynamic_content_width,
-            lastCode, lastCode
+            lastCode, lastCode, 
+            displayText: displaytext
         });
     });
 }

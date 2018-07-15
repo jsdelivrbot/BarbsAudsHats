@@ -49,6 +49,7 @@ cursive;
     color: rgb(0, 0, 0);
 }
 
+
 .admin-container {
     background-color: $primary-color !important;
     height: 3em;
@@ -89,16 +90,17 @@ cursive;
     width: 1em;
 }
 
-.find-sidenav {
-    width: 0;
+.find-sidenav-open {
+    width: auto;
     z-index: 1;
     overflow-x: hidden;
-    transition: 0.5s;
+    height: auto;
+}
+.find-sidenav-closed {
     display: none;
-    height: 0;
 }
 
-.find-sidenav a {
+#findContainer a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -107,11 +109,11 @@ cursive;
     transition: 0.3s;
 }
 
-.find-sidenav a:hover {
+#findContainer a:hover {
     color: #f1f1f1;
 }
 
-.find-sidenav .closebtn {
+#findContainer.closebtn {
     position: absolute;
     top: auto;
     right: auto;
@@ -170,13 +172,14 @@ cursive;
     width: 1em;
 }
 
-.contact-sidenav {
-    width: 0;
+.contact-sidenav-open {
+    width: auto;
     z-index: 1;
     overflow-x: hidden;
-    transition: 0.5s;
+    height: auto;
+}
+.contact-sidenav-closed {
     display: none;
-    height: 0;
 }
 
 .word-wrapping {
@@ -193,7 +196,7 @@ cursive;
   hyphens: auto;
 }
 
-.contact-sidenav a {
+#contactContainer a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -203,7 +206,7 @@ cursive;
 }
 
 
-.contact-sidenav .closebtn {
+#contactContainer .closebtn {
     position: absolute;
     top: auto;
     right: auto;
@@ -223,4 +226,25 @@ cursive;
     border-bottom: 5px rgba(156, 4, 136, 0.05) dotted;
     border-left: 5px rgba(156, 4, 136, 0.05) dotted;
     border-right: 5px rgba(156, 4, 136, 0.05) dotted;
+}
+
+/***************          Back to top              ***************/
+#backToTop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: 1px #f4c6ff dotted; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color:#e9c3c3; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#backToTop:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
 }
